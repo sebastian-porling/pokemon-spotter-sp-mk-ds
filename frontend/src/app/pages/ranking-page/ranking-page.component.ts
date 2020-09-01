@@ -1,4 +1,4 @@
-import { USERS } from './../../models/user/mock-users';
+import { USERS } from '../../mock-data/mock-users';
 import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 

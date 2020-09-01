@@ -1,4 +1,4 @@
-import { RankingPageComponent } from './components/ranking-page/ranking-page.component';
+import { RankingPageComponent } from './pages/ranking-page/ranking-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
