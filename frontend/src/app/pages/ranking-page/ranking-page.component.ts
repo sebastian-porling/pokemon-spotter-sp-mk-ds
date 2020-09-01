@@ -10,7 +10,6 @@ import { Location } from '@angular/common';
 })
 export class RankingPageComponent implements OnInit {
 users = USERS;
-
 userListByScore = USERS;
 topTen = USERS;
 

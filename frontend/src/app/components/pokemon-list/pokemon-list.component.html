@@ -1,7 +1,6 @@
-<h1>Pokemon List</h1>
-
-<ul>
-    <li *ngFor="let pokemon of pokemons">
-        <span class="name">{{pokemon.name}}</span>
+<ul class="list-group">
+    <li class="list-group-item" *ngFor="let pokemon of pokemons">
+        <span class="name">{{pokemon.name}}</span> 
+        <span class="spotted">{{pokemon.spotted}}</span>
     </li>
 </ul>

@@ -1,3 +1,4 @@
+import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -5,12 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { RankingPageComponent } from './pages/ranking-page/ranking-page.component';
-import { UserStartPageComponent } from './components/user-start-page/user-start-page.component';
+import { UserStartPageComponent } from './pages/user-start-page/user-start-page.component';
 
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
+import { RankingListComponent } from './components/ranking-list/ranking-list.component';
 import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.component';
-import { AllRankingListComponent } from './components/all-ranking-list/all-ranking-list.component';
-import { TopTenListComponent } from './components/top-ten-list/top-ten-list.component';
 
 
 @NgModule({
@@ -20,8 +20,8 @@ import { TopTenListComponent } from './components/top-ten-list/top-ten-list.comp
     UserStartPageComponent,
     PokemonListComponent,
     PokemonPageComponent,
-    AllRankingListComponent,
-    TopTenListComponent
+    RankingListComponent,
+    NavBarComponent
   ],
   imports: [
     BrowserModule,
