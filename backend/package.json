@@ -1,0 +1,29 @@
+{
+  "name": "pokemon-spotter-backend",
+  "version": "1.0.0",
+  "description": "An express server for a pokemon spotter",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "express",
+    "pokemon"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "clear": "^0.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "figlet": "^1.5.0",
+    "internal-ip": "^6.1.0",
+    "monk": "^7.3.2",
+    "morgan": "^1.10.0",
+    "pkg": "^4.4.9"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
