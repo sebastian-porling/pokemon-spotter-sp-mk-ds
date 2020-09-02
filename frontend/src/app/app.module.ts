@@ -11,6 +11,7 @@ import { UserStartPageComponent } from './pages/user-start-page/user-start-page.
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { RankingListComponent } from './components/ranking-list/ranking-list.component';
 import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.componen
     PokemonListComponent,
     PokemonPageComponent,
     RankingListComponent,
-    NavBarComponent
+    NavBarComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,

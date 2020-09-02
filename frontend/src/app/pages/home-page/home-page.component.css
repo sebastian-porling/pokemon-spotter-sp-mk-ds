@@ -1,0 +1,31 @@
+.main-div{
+    text-align: center;
+}
+.nav-div{
+    text-align: center;
+    display: inline-block;
+    padding: 10px 270px;
+
+
+}
+.pokemon-div{
+    
+    display: inline-block;
+    padding: 100px;
+    
+}
+.spotter{
+    
+    display: inline-block;
+    padding: 100px;
+
+
+}
+
+ul {
+    list-style-type: none;
+}
+
+h2{
+    text-decoration: underline;
+}
