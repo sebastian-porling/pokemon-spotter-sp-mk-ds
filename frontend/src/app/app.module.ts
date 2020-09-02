@@ -11,11 +11,11 @@ import { UserStartPageComponent } from './pages/user-start-page/user-start-page.
 import { PokemonListComponent } from './components/pokemon-list/pokemon-list.component';
 import { RankingListComponent } from './components/ranking-list/ranking-list.component';
 import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.component';
-<<<<<<< HEAD
+
 import { HomePageComponent } from './pages/home-page/home-page.component';
-=======
+
 import { MapBoxComponent } from './components/map-box/map-box.component';
->>>>>>> 4835e0278fadbb6106004de7d90618343e1fe32e
+
 
 
 @NgModule({
@@ -27,11 +27,8 @@ import { MapBoxComponent } from './components/map-box/map-box.component';
     PokemonPageComponent,
     RankingListComponent,
     NavBarComponent,
-<<<<<<< HEAD
-    HomePageComponent
-=======
+    HomePageComponent,
     MapBoxComponent
->>>>>>> 4835e0278fadbb6106004de7d90618343e1fe32e
   ],
   imports: [
     BrowserModule,
