@@ -1,0 +1,15 @@
+.main-div{
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.top-ten {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    background-color: rgb(131, 131, 127);
+    padding: 5px;
+  }
