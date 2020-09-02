@@ -3,8 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../models/user';
 import { Location } from '@angular/common';
 
-
-
 @Component({
   selector: 'app-ranking-list',
   templateUrl: './ranking-list.component.html',
@@ -28,7 +26,7 @@ export class RankingListComponent implements OnInit {
   getUsers(): void {
     this.userService.getUsers()
       .subscribe(users => this.users = users);
-  } s
+  } 
 
   sortusersByScore() {
     this.userListByScore = this.users.sort((a, b) => b.score - a.score);
