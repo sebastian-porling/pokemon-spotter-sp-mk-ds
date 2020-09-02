@@ -16,7 +16,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 
 import { MapBoxComponent } from './components/map-box/map-box.component';
 
-
+import { HttpClientModule } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -32,7 +32,8 @@ import { MapBoxComponent } from './components/map-box/map-box.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
