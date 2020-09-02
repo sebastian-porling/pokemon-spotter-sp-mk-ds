@@ -1,6 +1,6 @@
+import { User } from './../../models/user';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from "../../services/user.service";
-import { User } from "../../models/user";
 
 @Component({
   selector: 'app-ranking-page',
@@ -28,5 +28,6 @@ export class RankingPageComponent implements OnInit {
 
   filterTopTen() {
     return this.users.sort(this.sortByScore).slice(0,10)
-  }
+  }   
+
 }

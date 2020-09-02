@@ -1,54 +1,17 @@
-<!-- <div class="nav-div"> -->
-    <!-- TODO-->
-        <!-- <a class="nav-link" href="http://localhost:4200/">Login</a> -->
-<!-- </div> -->
-<!-- <div class="nav-div"> -->
-    <!-- TODO-->
-        <!-- <a class="nav-link" href="http://localhost:4200/">Register</a> -->
-<!-- </div> -->
-
+<div class="main-div">
+    <a class="nav-link" href="http://localhost:4200/">Login</a>
+    <a class="nav-link" href="http://localhost:4200/">Register</a>
+</div>
 
 <div class="main-div">
     <div class="pokemon-div">
         <h2>Pokémon</h2>
-        <!-- <table class="table">
-            <thead>
-              <tr>
-                <th scope="col">Sprite</th>
-                <th scope="col">Name</th>
-                <th scope="col">Rare</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let pokemon of pokemons">
-                <td>Picture</td>
-                <td>{{pokemon.name}}</td>
-                <td>Yes/No</td>
-              </tr>
-            </tbody>
-          </table> -->
-          <app-pokemon-list></app-pokemon-list>
+        <app-pokemon-list></app-pokemon-list>
     </div>
 
 
     <div class="spotter top-ten">
         <h2>Top 10 Spotters</h2>
-        <!-- <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let user of topTen;index as i;">
-                    <th scope="row">{{i+1}}</th>
-                    <td>{{user.fullname}}</td>
-                    <td>{{user.score}}</td>
-                </tr>
-            </tbody>
-        </table> -->
         <app-ranking-list [users]="topTen"></app-ranking-list>
     </div>
 </div>
