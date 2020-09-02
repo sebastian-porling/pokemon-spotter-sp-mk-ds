@@ -1,1 +1,4 @@
-<app-ranking-list></app-ranking-list>
+<div>Top 10</div>
+<app-ranking-list [users]="filterTopTen()" [isSticky]="true"></app-ranking-list>
+<div>All</div>
+<app-ranking-list [users]="sortusersByScore()"></app-ranking-list>
