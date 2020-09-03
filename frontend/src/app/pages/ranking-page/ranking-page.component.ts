@@ -1,6 +1,7 @@
 import { User } from './../../models/user';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from "../../services/user.service";
+import { ModifyObjectService } from "../../services/modify-object.service";
 
 @Component({
   selector: 'app-ranking-page',
@@ -8,11 +9,11 @@ import { UserService } from "../../services/user.service";
   styleUrls: ['./ranking-page.component.css']
 })
 export class RankingPageComponent implements OnInit {
-    sortByScore = (u1, u2) => u2.score - u1.score;
   
     public users : User[];
 
-    constructor(private userService : UserService) { }
+    constructor(private userService : UserService,
+      private modifyObjectService : ModifyObjectService) { }
 
   ngOnInit(): void {
     this.getUsers();
@@ -23,11 +24,10 @@ export class RankingPageComponent implements OnInit {
   }
 
   sortusersByScore() {
-    return this.users.sort(this.sortByScore);
+    return this.users.sort(this.modifyObjectService.sortByField("score"));
   }
-
+  
   filterTopTen() {
-    return this.users.sort(this.sortByScore).slice(0,10)
-  }   
-
+    return this.users.sort(this.modifyObjectService.sortByField("score")).slice(0,10)
+  }
 }
