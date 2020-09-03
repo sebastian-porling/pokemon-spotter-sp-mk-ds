@@ -13,17 +13,13 @@ export class HomePageComponent implements OnInit {
   public users: User[];
   public pokemons: Pokemon[];
 
-
-  userListByScore = this.users;
   topTen = this.users;
   constructor(public userService: UserService,public pokemonService: PokemonService) { }
 
   ngOnInit(): void {
     this.getUsers();
-    this.sortusersByScore();
-    this.filterTopTen();
+    this.sortAndFilterTopTenUsersByScore()
     this.getPokemons();
-
   }
 
   getUsers(): void {
@@ -31,13 +27,11 @@ export class HomePageComponent implements OnInit {
       .subscribe(users => this.users = users);
   } 
 
-  sortusersByScore() {
-    this.userListByScore = this.users.sort((a, b) => b.score - a.score);
+  sortAndFilterTopTenUsersByScore() {
+    let sorteredList = this.users.sort((a, b) => b.score - a.score);
+    this.topTen = sorteredList.slice(0, 10);
   }
-
-  filterTopTen() {
-    this.topTen = this.userListByScore.slice(0, 10);
-  }
+  
   getPokemons() : void {
     this.pokemonService.getPokemons()
       .subscribe(pokemons => this.pokemons = pokemons);

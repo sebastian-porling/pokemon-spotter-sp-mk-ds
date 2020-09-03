@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '', component: HomePageComponent },
   { path: 'ranking', component: RankingPageComponent },
   { path:"pokemon", component: PokemonPageComponent},
-  { path: 'userstartpage', component: UserStartPageComponent },
+  { path: 'userstartpage', component: UserStartPageComponent }
 ];
 
 @NgModule({

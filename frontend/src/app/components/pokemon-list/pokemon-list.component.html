@@ -1,6 +1,16 @@
-<ul class="list-group">
-    <li class="list-group-item" *ngFor="let pokemon of pokemons">
-        <span class="name">{{pokemon.name}}</span> 
-        <span class="spotted">{{pokemon.spotted}}</span>
-    </li>
-</ul>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Sprite</th>
+        <th scope="col">Name</th>
+        <th scope="col">Rare</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pokemon of pokemons">
+        <td>{{pokemon.sprite}}</td>
+        <td>{{pokemon.name}}</td>
+        <td>Yes/No</td>
+      </tr>
+    </tbody>
+  </table>

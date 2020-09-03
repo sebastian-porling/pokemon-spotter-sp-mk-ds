@@ -1,7 +1,8 @@
+import { User } from './../../models/user';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from "../../services/user.service";
-import { User } from "../../models/user";
 import { ModifyObjectService } from "../../services/modify-object.service";
+
 @Component({
   selector: 'app-ranking-page',
   templateUrl: './ranking-page.component.html',
