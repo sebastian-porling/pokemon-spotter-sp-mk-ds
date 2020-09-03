@@ -15,13 +15,13 @@
         <li class="nav-item">
           <a class="nav-link" href="http://localhost:4200/">Add spotted</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" *ngIf="isLoggedIn">
           <a class="nav-link" href="http://localhost:4200/userstartpage">User page</a>
         </li>
       </ul>
       <span class="navbar-text">
-        <a *ngIf="isLoggedIn === false" href="" data-toggle="modal" data-target="#modalSubscriptionForm">Login</a>
-        <a *ngIf="isLoggedIn === true" href="" data-toggle="modal" data-target="#modalRegisterForm">Sign in</a>
+        <a *ngIf="!isLoggedIn" href="" data-toggle="modal" data-target="#modalSubscriptionForm">Login</a>
+        <a *ngIf="isLoggedIn" href="" data-toggle="modal" data-target="#modalRegisterForm">Sign in</a>
       </span>
     </div>
   </nav>
