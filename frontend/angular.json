@@ -142,8 +142,13 @@
               "devServerTarget": "pokemon-spotter-frontend:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
+    }
+  },
   "defaultProject": "pokemon-spotter-frontend"
 }
