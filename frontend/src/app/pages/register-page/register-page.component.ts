@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-register-page',
@@ -10,19 +11,30 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class RegisterPageComponent implements OnInit {
   public registerForm: FormGroup;
   public gitlab: any;
-  constructor(private cookieService: CookieService) { }
+
+  constructor(
+    private cookieService: CookieService,
+    private authService: AuthService
+    ) { }
 
   ngOnInit(): void {
     this.gitlab = JSON.parse(this.cookieService.get('gitlab'));
-    console.log(this.gitlab.email);
     this.registerForm = new FormGroup({
-      email: new FormControl(this.gitlab.email),
-      password: new FormControl(''),
-      re_password: new FormControl('')
+      email: new FormControl(this.gitlab.email, Validators.required),
+      password: new FormControl('', Validators.required),
+      re_password: new FormControl('', Validators.required)
     });
   }
 
   onSubmit(): void {
-
+    const formvalues = this.registerForm.value;
+    if (formvalues.password === formvalues.re_password) {
+      this.authService.signUp({
+        email: formvalues.email,
+        password: formvalues.password,
+        displayName: this.gitlab.username,
+        photoURL: this.gitlab.avatar_url
+      });
+    }
   }
 }

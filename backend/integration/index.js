@@ -2,55 +2,76 @@ const admin = require('firebase-admin');
 var serviceAccount = require("../permissions.json");
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://fir-api-9a206..firebaseio.com"
+  databaseURL: "firebase-adminsdk-ldsgw@pokemon-spotter.iam.gserviceaccount.com"
 });
 const db = admin.firestore();
 
+/**
+ * 
+ * @param {*} user_id 
+ * @param {*} pokemon 
+ */
 module.exports.spot = async (user_id, pokemon) => {
     try {
-        let document = db.collection('users').doc(`/${user_id}/`).get();
-        const user = document.data();
-        await document.update(
-                {
-                    ...user,
-                    pokemons: [...pokemons.filter(p => p.id !== pokemon.id), pokemon]
-                }
-                );
-        document = await db.collection('pokemon').doc(`/${pokemon.id}/`).get();
-        pokemon = document.data();
-        pokemon.spotted++;
-        await document.update({pokemon})
+        let document = db.collection('users').doc(`/${user_id}/`);
+        let snapshot = await document.get();
+        const user = snapshot.data();
+        document.update({
+            found_pokemon: [...user.found_pokemon.filter(p => p.id !== pokemon.id), pokemon]
+        }).then(async _ => {
+            document = db.collection('pokemon').doc(`/${pokemon.id}/`);
+            snapshot = await document.get();
+            pokemon = snapshot.data();
+            pokemon.spotted++;
+            await document.update(pokemon)
+        });
         return 200;
       } catch (error) {
-        console.log(error);
-        return 500;
+        throw error;
       }
 };
 
+/**
+ * 
+ * @param {*} user 
+ */
 module.exports.createUser = async (user) => {
     try {
-        const newuser = await admin.auth().createUser({
+        const newUser = await admin.auth().createUser({
             email: user.email,
             password: user.password,
-            displayName: user.username,
-            photoURL: user.profile
-          }).catch(err => console.log(err))
-        console.log(newuser)
-        return newuser;
+            displayName: user.displayName,
+            photoURL: user.photoURL
+        });
+        const {displayName, photoURL, uid} = newUser;
+        db.collection('users').doc(uid).create({
+            displayName,
+            photoURL,
+            score: 0,
+            found_pokemon: []
+        });
+        return newUser;
     } catch (error) {
         throw error.errorInfo;
     }
 }
 
-
-module.exports.userExists = (user) => {
+/**
+ * 
+ */
+module.exports.getUsers = async () => {
     try {
-        
+        let snapshot = await db.collection('users').get()
+        const users = snapshot.docs.map(doc => doc.data());
+        return users;
     } catch (error) {
-        
+        throw error;
     }
 }
 
+/**
+ * 
+ */
 module.exports.getAllPokemon = async () => {
     try {
         let snapshot = await db.collection('pokemon').get()
@@ -61,6 +82,10 @@ module.exports.getAllPokemon = async () => {
     }
 }
 
+/**
+ * 
+ * @param {*} pokemon_id 
+ */
 module.exports.getPokemon = async (pokemon_id) => {
     pokemon_id = 1;
     try {

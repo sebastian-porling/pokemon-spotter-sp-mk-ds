@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from "src/app/services/auth.service";
+
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -14,7 +15,9 @@ export class NavBarComponent implements OnInit {
     password: new FormControl('')
   });
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService
+    ) { }
 
   get email(): any {
     return this.loginForm.get('email').value;
