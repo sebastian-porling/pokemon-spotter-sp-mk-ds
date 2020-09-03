@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "pokemon-spotter",
+  "private_key_id": "69a7d28c6b985ac626c02288b9985754592828af",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQDFs2E94m+JptqA\n/Ltph2GeuUl1sDOeaUlbFmlPBNQlVGVE+24rw+BnMxZVmbJNDE6IHy/J2aqOrGzd\n/WCu0Wy9rgPEOxkumnr50582cyrjRNdSIX0VjsCgqrMelVX0+SdzHBo7ms3WpC4x\nXaOKfdieOWXPJotf/q4IR99O6661u8epcIIlmstJQo/IKezX3Pidp+mfJVncD+3d\n8/fHN4vwjBT8BSkrPzny7a+JStA623gSLm03/qlrtfc9pM9ydb+MBrdKmT1W5GOr\nXGpMm5dCOOTtT4uOZoGzyxxlwF1JOPpukBv0jxmA64lF6nAT650olK1F2X9FRJu4\n4KxAdbJzAgMBAAECggEAOMqAopBLThV6Kxdulq/nIPtE2OPW0Ciag+n6MlLGxjpq\nJNi9GyFXcw2/2rMd/vgMDxo2VhuK3RU26MYCYfWS8SHtvw7i+voxXVanI7MNnN+H\novYvwmORfhXLAnwPhyGTbYOjHYAopQHgqxmlAwGHmlwOnOULoHW+dG6A/WDCfT2E\nYBV+dfM9AjTFdhwK+vW694xwufTMjxID/oPYImxLphUlfmvTODB3a8dzgWLgsJZz\nZwTiaQEJcXXeaojZrmQMaINNxscVtVeJml/aX4B44UUSBfh83S/hfqxsBSR+CdiC\nDiRNmKrc0CIhr9WaJwLMt6N6tD7l9LCdHYF0MpKfoQKBgQDwqMCl3wccC+/MtmBl\nQE08zKWSAtF7RSyObgtr9VmAGCRSSTY4ADPpHSKORi23ZClG4vym45Iyt9Br9vk2\nLEic5VxfmdFdhdwi8YU2ZE/vrHftdqO3MaWUl2rjzTDNKN9rXQHW00/ffgHsjIRZ\nZrb3LYxlJqq8NPHz9G0MJPN+aQKBgQDSTZmpJ2nzwUGUD+PlNzjXkQ0bt/4qoeUZ\nUUmS/vr7d8rzoXdf23+4xsvfvA0M0zoC4EQ4vyZmS+goFc7siGBH7gFr7HAhyg2S\nC2IHxsA2nVCnrqll0DE8+q48+wFBVW4KA8obEiyFxGAHJPFxeiUfdgoEg+V99pZZ\nk3aREUWGewKBgQC759d76/deI8fZ/HCpvhpQpa2FoyOzb2CJ2Uybv9dhF/iMM1Pd\nR/NAShpoIk2hytgb3DHPkRLe/P0Ev7L4ZH1R3BhTIQQDVPh8ZD5SKOLtTanaRO8x\no9cYfV3dfqJjHk3MQ7Oi7B2KcJXKADF6qKOlve/ILvfSujhM9gWLHPLuOQKBgQC1\n4OT+9RZd+IplqeR3rW2ciVcj3NmVN1Sys6mE1r5rUywTzlY2cdghDtTtV26V4+ws\n5pY52Z81I3rRiCLgUAWsz7stAlvr7RoVb4DFpu8/jIhfrN/WLNsYmNit5ossXN0B\nDkvxY6NbwP0n0Jx7fp6yedyqEQQeD2/yYmVNivltFwKBgFdtALkLsIYt6Upysgh/\nNJKvg2YvOcLJXXXSJ3fPJUZ7JxyEyooguuUsMqu99DLHjQkgWbFknMTs3kaEj/Yh\n2wDb/QOCx70Hb0adp3Fpg3O4UDdZqXNZTSfQ+9o3cOd6YrLRN1EGaEX6x0qCbt6j\nRn8223sD6+vGWFofLpm8MAt8\n-----END PRIVATE KEY-----\n",
+  "client_email": "firebase-adminsdk-ldsgw@pokemon-spotter.iam.gserviceaccount.com",
+  "client_id": "103045252090258416147",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-ldsgw%40pokemon-spotter.iam.gserviceaccount.com"
+}

@@ -2,15 +2,21 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from "rxjs";
 import { Pokemon } from "../models/pokemon";
 import { POKEMONS } from "../mock-data/mock-pokemons";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokemonService {
 
-  constructor() { }
+  private pokemonURL = 'http://localhost:3000/api/pokemon'; 
 
+  constructor(private http: HttpClient) { }
+  
   getPokemons(): Observable<Pokemon[]> {
-    return of(POKEMONS);
+    return this.http.get<Pokemon[]>(this.pokemonURL)
+    // return of(POKEMONS);
   }
 }

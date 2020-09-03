@@ -1,22 +1,24 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from "rxjs";
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  public loggedIn: boolean;
+  public user: Observable<firebase.User>;
 
-  constructor() { }
-
-  public isLoggedIn(): Observable<boolean>{
-    return of(this.loggedIn);
+  constructor(public authNg: AngularFireAuth) {
+    this.user = authNg.authState;
   }
-  public signIn(): void{
-    this.loggedIn = true;
+  public signUp(email, password): void {}
+
+  public signIn(email, password): void{
+    this.authNg.signInWithEmailAndPassword(email, password);
   }
   public signOut(): void{
-    this.loggedIn = false;
+    this.authNg.signOut();
   }
 }

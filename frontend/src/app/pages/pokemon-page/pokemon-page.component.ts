@@ -21,3 +21,6 @@ export class PokemonPageComponent implements OnInit {
        .subscribe(pokemons => this.pokemons = pokemons);
   }
 }
+
+
+

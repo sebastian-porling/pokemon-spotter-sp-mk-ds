@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl } from '@angular/forms';
 import { AuthService } from "src/app/services/auth.service";
 @Component({
   selector: 'app-nav-bar',
@@ -6,24 +7,43 @@ import { AuthService } from "src/app/services/auth.service";
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  public user: any;
 
-  public isLoggedIn: boolean;
+  loginForm: FormGroup = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl('')
+  });
 
   constructor(private authService: AuthService) { }
 
+  get email(): any {
+    return this.loginForm.get('email').value;
+  }
+
+  get password(): any {
+    return this.loginForm.get('password').value;
+  }
+
   ngOnInit(): void {
-    this.checkLogin();
+    this.checkUser();
   }
-  public checkLogin() : void {
-    this.authService.isLoggedIn()
-      .subscribe(isLoggedIn => this.isLoggedIn = isLoggedIn)
+
+  public checkUser(): void {
+    this.authService.user.subscribe((user) => this.user = user);
   }
-  public signIn(){
-    this.authService.signIn();
-    this.checkLogin();
+
+  public signIn(): void {
+    this.authService.signIn(this.email, this.password);
+    this.checkUser();
+
   }
-  public signOut(){
+
+  public signUp(): void {
+
+  }
+
+  public signOut(): void {
     this.authService.signOut();
-    this.checkLogin();
+    this.checkUser();
   }
 }
