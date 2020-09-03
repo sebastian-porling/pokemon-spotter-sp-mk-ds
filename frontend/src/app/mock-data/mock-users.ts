@@ -13,9 +13,9 @@ export const USERS: User[] = [
             {
                 id: 1,
                 name: "Pikachu",
-                sprite: "",
-                latitude: 123454,
-                longitude: 908753
+                sprite: "https://secure.img1-fg.wfcdn.com/im/02238154/compr-r85/8470/84707680/pokemon-pikachu-wall-decal.jpg",
+                latitude: 60.314610,
+                longitude: 18.071760
             }
            
         ]
@@ -32,9 +32,9 @@ export const USERS: User[] = [
             {
                 id: 4,
                 name: "Charmander",
-                sprite: "",
-                latitude: 908454,
-                longitude: 870873
+                sprite: "https://p1.hiclipart.com/preview/905/247/577/bulbasaur-pokemon-bulbasaur-png-clipart-thumbnail.jpg",
+                latitude: 59.314610,
+                longitude: 18.071760
             }
            
         ]
@@ -51,9 +51,9 @@ export const USERS: User[] = [
             {
                 id: 6,
                 name: "Ditto",
-                sprite: "",
-                latitude: 222998,
-                longitude: 223345
+                sprite: "https://p1.hiclipart.com/preview/905/247/577/bulbasaur-pokemon-bulbasaur-png-clipart-thumbnail.jpg",
+                latitude: 58.314610,
+                longitude: 18.071760
             }
            
         ]
@@ -71,8 +71,8 @@ export const USERS: User[] = [
                 id: 6,
                 name: "Ditto",
                 sprite: "",
-                latitude: 222998,
-                longitude: 223345
+                latitude: 59.314610,
+                longitude: 18.071760
             }
            
         ]
@@ -90,8 +90,8 @@ export const USERS: User[] = [
                 id: 6,
                 name: "Ditto",
                 sprite: "",
-                latitude: 222998,
-                longitude: 223345
+                latitude: 59.314610,
+                longitude: 18.071760
             }
            
         ]
@@ -109,8 +109,8 @@ export const USERS: User[] = [
                 id: 6,
                 name: "Ditto",
                 sprite: "",
-                latitude: 222998,
-                longitude: 223345
+                latitude: 59.314610,
+                longitude: 18.071760
             }
            
         ]
@@ -128,8 +128,8 @@ export const USERS: User[] = [
                 id: 6,
                 name: "Ditto",
                 sprite: "",
-                latitude: 222998,
-                longitude: 223345
+                latitude: 59.314610,
+                longitude: 18.071760
             }
            
         ]
@@ -147,8 +147,8 @@ export const USERS: User[] = [
                 id: 6,
                 name: "Ditto",
                 sprite: "",
-                latitude: 222998,
-                longitude: 223345
+                latitude: 59.314610,
+                longitude: 18.071760
             }
            
         ]
@@ -166,8 +166,8 @@ export const USERS: User[] = [
                 id: 6,
                 name: "Ditto",
                 sprite: "",
-                latitude: 222998,
-                longitude: 223345
+                latitude: 59.314610,
+                longitude: 18.071760
             }
            
         ]
@@ -185,8 +185,8 @@ export const USERS: User[] = [
                 id: 6,
                 name: "Ditto",
                 sprite: "",
-                latitude: 222998,
-                longitude: 223345
+                latitude: 59.314610,
+                longitude: 18.071760
             }
            
         ]
@@ -204,8 +204,8 @@ export const USERS: User[] = [
                 id: 6,
                 name: "Ditto",
                 sprite: "",
-                latitude: 222998,
-                longitude: 223345
+                latitude: 59.314610,
+                longitude: 18.071760
             }
            
         ]
@@ -223,8 +223,8 @@ export const USERS: User[] = [
                 id: 6,
                 name: "Ditto",
                 sprite: "",
-                latitude: 222998,
-                longitude: 223345
+                latitude: 59.314610,
+                longitude: 18.071760
             }
            
         ]
@@ -242,8 +242,8 @@ export const USERS: User[] = [
                 id: 6,
                 name: "Ditto",
                 sprite: "",
-                latitude: 222998,
-                longitude: 223345
+                latitude: 59.314610,
+                longitude: 18.071760
             }
            
         ]
