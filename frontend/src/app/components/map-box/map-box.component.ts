@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import  * as Leaflet from "leaflet";
-import { Pokemon } from "../../models/pokemon";
-import { POKEMONS } from "../../mock-data/mock-pokemons";
-
+import { User } from "../../models/user";
+import { MapService } from "../../services/map.service";
 
 @Component({
   selector: 'app-map-box',
@@ -12,30 +11,31 @@ import { POKEMONS } from "../../mock-data/mock-pokemons";
 export class MapBoxComponent implements OnInit {
   public map: any;
 
-  constructor() {}
+  //Start value Stocholm
+  public lat: number = 59.334591;
+  public lng: number = 18.063240;
+
+  constructor(private mapService: MapService) {}
 
   ngOnInit(): void {
     this.initMap();
-    this.locatePokemons();
+    this.populateAllPokemons();
   }
   
-  // ngAfterViewInit(): void {
-    
-  // }
   initMap(): void {
     this.map = Leaflet.map('map', {
-      center: [39.8232, -98,5795],
-      zoom: 6
+      center: [this.lat, this.lng],
+      zoom: 12
     });
     Leaflet.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
       {
         maxZoom: 19
       }).addTo(this.map);
   }
-  locatePokemons(): void{
-    Leaflet.circleMarker([39.8232, -98,5795]).addTo(this.map);
-    Leaflet.circleMarker([38.8232, -98,5795]).addTo(this.map);
-    Leaflet.circleMarker([37.8232, -98,5795]).addTo(this.map);
-    Leaflet.circleMarker([36.8232, -98,5795]).addTo(this.map);
+  populateUsersPokemons(user: User): void{
+      this.mapService.populatePokemonByUser(user, this.map);
+  }
+  populateAllPokemons() :void{
+      this.mapService.populatePokemonByAllUsers(this.map);
   }
 }
