@@ -6,7 +6,7 @@ import { Observable, of } from "rxjs";
 })
 export class AuthService {
 
-  public loggedIn: boolean = false;
+  public loggedIn: boolean;
 
   constructor() { }
 
