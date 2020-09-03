@@ -5,7 +5,7 @@ const db = require('../integration');
 apiRouter.get("/pokemon", async (_, res) => {
     console.log("in api")
     try {
-        const pokemon = await db.getPokemon();
+        const pokemon = await db.getAllPokemon();
         res.status(200).json(pokemon);
     } catch (error) {
         res.status(400).json({msg: "Couldn't load pokemon!"})
