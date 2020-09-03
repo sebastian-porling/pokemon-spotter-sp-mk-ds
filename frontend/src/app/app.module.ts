@@ -17,6 +17,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MapBoxComponent } from './components/map-box/map-box.component';
 
 import { HttpClientModule } from "@angular/common/http";
+import { AddSpottedPageComponent } from './pages/add-spotted-page/add-spotted-page.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { HttpClientModule } from "@angular/common/http";
     RankingListComponent,
     NavBarComponent,
     HomePageComponent,
-    MapBoxComponent
+    MapBoxComponent,
+    AddSpottedPageComponent
   ],
   imports: [
     BrowserModule,

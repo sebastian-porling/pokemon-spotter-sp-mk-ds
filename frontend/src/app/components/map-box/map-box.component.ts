@@ -23,6 +23,7 @@ export class MapBoxComponent implements OnInit {
     
   // }
   initMap(): void {
+    
     this.map = Leaflet.map('map', {
       center: [39.8232, -98,5795],
       zoom: 6
@@ -37,5 +38,7 @@ export class MapBoxComponent implements OnInit {
     Leaflet.circleMarker([38.8232, -98,5795]).addTo(this.map);
     Leaflet.circleMarker([37.8232, -98,5795]).addTo(this.map);
     Leaflet.circleMarker([36.8232, -98,5795]).addTo(this.map);
+
   }
+
 }
