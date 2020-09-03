@@ -1,0 +1,10 @@
+<p>Register!</p>
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <label for="email">email:</label>
+  <input type="email" name="email" id="email" disabled formControlName="email">
+  <label for="password">password</label>
+  <input type="password" name="password" id="password" formControlName="password">
+  <label for="re-password">re-enter password</label>
+  <input type="password" name="re-password" id="re-password" formControlName="re_password">
+  <button type="submit"></button>
+</form>

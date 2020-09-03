@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "pokemon-spotter": {
+      "hosting": {
+        "pokemon-spotter-frontend": [
+          "pokemon-spotter"
+        ]
+      }
+    }
+  }
+}
