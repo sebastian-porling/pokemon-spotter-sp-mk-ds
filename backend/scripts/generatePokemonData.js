@@ -8,6 +8,9 @@ admin.initializeApp({
 });
 const db = admin.firestore();
 
+/**
+ * 
+ */
 async function main() {
     response = await axios(`${API_URL}/pokemon?limit=151`);
     let results = response.data.results;
