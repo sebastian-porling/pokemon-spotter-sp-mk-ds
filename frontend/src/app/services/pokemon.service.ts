@@ -11,14 +11,12 @@ export class PokemonService {
 
   public pokemonUrl = 'http://localhost:3000/api/pokemon';
 
-  // public httpOptions = {
-  //   headers: new HttpHeaders({'Content-Type': 'application/json'})
-  // };
-  
-
   constructor(private http: HttpClient) { }
   
   getPokemons(): Observable<Pokemon[]> {
     return this.http.get<Pokemon[]>(this.pokemonUrl);
+  }
+  getPokemonById(id): Observable<Pokemon>{
+    return this.http.get<Pokemon>(`${this.pokemonUrl}/${id}`);
   }
 }

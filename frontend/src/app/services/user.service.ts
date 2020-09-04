@@ -4,20 +4,19 @@ import { User } from "../models/user";
 import { USERS } from './../mock-data/mock-users';
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 
-
-
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  public userUrl = 'http://localhost:3000/api/users';
+
+  public usersUrl = 'http://localhost:3000/api/users';
 
   constructor(private http: HttpClient) { }
 
   getUsers(): Observable<User[]> {
-  return this.http.get<User[]>(this.userUrl);
-
-    //return of(USERS);
+    console.log("UserService: " + this.http.get<User[]>(this.usersUrl));
+    
+    return this.http.get<User[]>(this.usersUrl);
   }
 }
 

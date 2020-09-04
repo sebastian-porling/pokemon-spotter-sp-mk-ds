@@ -16,7 +16,9 @@ module.exports.spot = async (user_id, pokemon) => {
         let document = db.collection('users').doc(`/${user_id}/`);
         let snapshot = await document.get();
         const user = snapshot.data();
+        const newScore = await calculateNewScore(pokemon, user);
         document.update({
+            score: newScore,
             found_pokemon: [...user.found_pokemon.filter(p => p.id !== pokemon.id), pokemon]
         }).then(async _ => {
             document = db.collection('pokemon').doc(`/${pokemon.id}/`);
@@ -30,6 +32,21 @@ module.exports.spot = async (user_id, pokemon) => {
         throw error;
       }
 };
+
+const getRareIndex = (pokemon_id) => (pokemon) => pokemon.id === pokemon_id; 
+const calculateNewScore = async (pokemon, user) => {
+    try {
+        const allPokemon = await getAllPokemon();
+        const rareIndex = allPokemon.findIndex(getRareIndex(pokemon.id));
+        console.log(pokemon.shiny)
+        const shinyScore = pokemon.shiny ? 1000 : 0;
+        const score = rareIndex * 100 + 100 + shinyScore + user.score;
+        return score;
+    } catch (error) {
+        console.log(error);
+        throw error;
+    }
+}
 
 /**
  * 
@@ -45,6 +62,7 @@ module.exports.createUser = async (user) => {
         });
         const {displayName, photoURL, uid} = newUser;
         db.collection('users').doc(uid).create({
+            uid,
             displayName,
             photoURL,
             score: 0,
@@ -69,18 +87,30 @@ module.exports.getUsers = async () => {
     }
 }
 
+module.exports.getTopTenUsers = async () => {
+    try {
+        const usersRef = db.collection('users');
+        let snapshot = await usersRef.orderBy('score').limit(10).get();
+        const topTenUsers = snapshot.docs.map(doc => doc.data());
+        return topTenUsers;
+    } catch (error) {
+        throw error;
+    }
+}
+
 /**
  * 
  */
-module.exports.getAllPokemon = async () => {
+const getAllPokemon = async () => {
     try {
-        let snapshot = await db.collection('pokemon').get()
+        let snapshot = await db.collection('pokemon').orderBy("spotted", "desc").get()
         const pokemon = snapshot.docs.map(doc => doc.data());
         return pokemon;
     } catch (error) {
         throw error;
     }
 }
+module.exports.getAllPokemon = getAllPokemon;
 
 /**
  * 

@@ -17,7 +17,9 @@ import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.componen
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MapBoxComponent } from './components/map-box/map-box.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
-import { AddSpottedPageComponent } from './pages/add-spotted-page/add-spotted-page.component';
+import { AddSpottedPokemonPageComponent } from './pages/add-spotted-pokemon-page/add-spotted-pokemon-page.component';
+
+
 
 @NgModule({
   declarations: [
@@ -30,8 +32,8 @@ import { AddSpottedPageComponent } from './pages/add-spotted-page/add-spotted-pa
     NavBarComponent,
     HomePageComponent,
     MapBoxComponent,
-    AddSpottedPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    AddSpottedPokemonPageComponent
   ],
   imports: [
     BrowserModule,

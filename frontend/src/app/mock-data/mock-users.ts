@@ -2,17 +2,15 @@ import {User} from '../models/user';
 
 export const USERS: User[] = [
     {
-        id: 1,
-        username: "Kalle",
-        email: "kalle@gmail.com",
-        profile_pic: "",
-        fullname: "Kalle Karlsson",
-        password_hashes: "password",
+        uid: "1",
+        displayName: "Kalle",
+        photoURL: "",
         score: 1000,
         found_pokemon: [
             {
                 id: 1,
                 name: "Pikachu",
+                gender: "female",
                 sprite: "https://secure.img1-fg.wfcdn.com/im/02238154/compr-r85/8470/84707680/pokemon-pikachu-wall-decal.jpg",
                 latitude: 60.314610,
                 longitude: 18.071760
@@ -21,17 +19,15 @@ export const USERS: User[] = [
         ]
     },
     {
-        id: 2,
-        username: "Adam",
-        email: "adam@gmail.com",
-        profile_pic: "",
-        fullname: "Adam Adamsson",
-        password_hashes: "password",
+        uid: "2",
+        displayName: "Adam",
+        photoURL: "",
         score: 500,
         found_pokemon: [
             {
                 id: 4,
                 name: "Charmander",
+                gender: "female",
                 sprite: "https://p1.hiclipart.com/preview/905/247/577/bulbasaur-pokemon-bulbasaur-png-clipart-thumbnail.jpg",
                 latitude: 59.314610,
                 longitude: 18.071760
@@ -40,17 +36,15 @@ export const USERS: User[] = [
         ]
     },
     {
-        id: 3,
-        username: "niklas",
-        email: "niklas@gmail.com",
-        profile_pic: "",
-        fullname: "Niklas Nilsson",
-        password_hashes: "password",
+        uid: "3",
+        displayName: "niklas",
+        photoURL: "",
         score: 250,
         found_pokemon: [
             {
                 id: 6,
                 name: "Ditto",
+                gender: "female",
                 sprite: "https://p1.hiclipart.com/preview/905/247/577/bulbasaur-pokemon-bulbasaur-png-clipart-thumbnail.jpg",
                 latitude: 58.314610,
                 longitude: 18.071760
@@ -59,18 +53,16 @@ export const USERS: User[] = [
         ]
     },
     {
-        id: 4,
-        username: "peter",
-        email: "peter@gmail.com",
-        profile_pic: "",
-        fullname: "Peter Svensson",
-        password_hashes: "password",
+        uid: "4",
+        displayName: "peter",
+        photoURL: "",
         score: 439,
         found_pokemon: [
             {
                 id: 6,
                 name: "Ditto",
                 sprite: "",
+                gender: "female",
                 latitude: 59.314610,
                 longitude: 18.071760
             }
@@ -78,18 +70,16 @@ export const USERS: User[] = [
         ]
     },
     {
-        id: 5,
-        username: "kim",
-        email: "kim@gmail.com",
-        profile_pic: "",
-        fullname: "Kim André",
-        password_hashes: "password",
+        uid: "5",
+        displayName: "kim",
+        photoURL: "",
         score: 150,
         found_pokemon: [
             {
                 id: 6,
                 name: "Ditto",
                 sprite: "",
+                gender: "female",
                 latitude: 59.314610,
                 longitude: 18.071760
             }
@@ -97,18 +87,16 @@ export const USERS: User[] = [
         ]
     },
     {
-        id: 6,
-        username: "mike",
-        email: "mike@gmail.com",
-        profile_pic: "",
-        fullname: "Mike Tyson",
-        password_hashes: "password",
+        uid: "6",
+        displayName: "mike",
+        photoURL: "",
         score: 10,
         found_pokemon: [
             {
                 id: 6,
                 name: "Ditto",
                 sprite: "",
+                gender: "female",
                 latitude: 59.314610,
                 longitude: 18.071760
             }
@@ -116,18 +104,16 @@ export const USERS: User[] = [
         ]
     },
     {
-        id: 7,
-        username: "john",
-        email: "john@gmail.com",
-        profile_pic: "",
-        fullname: "John Doe",
-        password_hashes: "password",
+        uid: "7",
+        displayName: "john",
+        photoURL: "",
         score: 540,
         found_pokemon: [
             {
                 id: 6,
                 name: "Ditto",
                 sprite: "",
+                gender: "female",
                 latitude: 59.314610,
                 longitude: 18.071760
             }
@@ -135,18 +121,16 @@ export const USERS: User[] = [
         ]
     },
     {
-        id: 8,
-        username: "phil",
-        email: "phil@gmail.com",
-        profile_pic: "",
-        fullname: "DR.Phil",
-        password_hashes: "password",
+        uid: "8",
+        displayName: "phil",
+        photoURL: "",
         score: 330,
         found_pokemon: [
             {
                 id: 6,
                 name: "Ditto",
                 sprite: "",
+                gender: "female",
                 latitude: 59.314610,
                 longitude: 18.071760
             }
@@ -154,18 +138,16 @@ export const USERS: User[] = [
         ]
     },
     {
-        id: 9,
-        username: "ebba",
-        email: "ebba@gmail.com",
-        profile_pic: "",
-        fullname: "Ebba Persson",
-        password_hashes: "password",
+        uid: "9",
+        displayName: "ebba",
+        photoURL: "",
         score: 980,
         found_pokemon: [
             {
                 id: 6,
                 name: "Ditto",
                 sprite: "",
+                gender: "female",
                 latitude: 59.314610,
                 longitude: 18.071760
             }
@@ -173,18 +155,16 @@ export const USERS: User[] = [
         ]
     },
     {
-        id: 10,
-        username: "drake",
-        email: "drake@gmail.com",
-        profile_pic: "",
-        fullname: "Drake Wilson",
-        password_hashes: "password",
+        uid: "10",
+        displayName: "drake",
+        photoURL: "",
         score: 120,
         found_pokemon: [
             {
                 id: 6,
                 name: "Ditto",
                 sprite: "",
+                gender: "female",
                 latitude: 59.314610,
                 longitude: 18.071760
             }
@@ -192,18 +172,16 @@ export const USERS: User[] = [
         ]
     },
     {
-        id: 11,
-        username: "liv",
-        email: "liv@gmail.com",
-        profile_pic: "",
-        fullname: "Liv Livson",
-        password_hashes: "password",
+        uid: "11",
+        displayName: "liv",
+        photoURL: "",
         score: 195,
         found_pokemon: [
             {
                 id: 6,
                 name: "Ditto",
                 sprite: "",
+                gender: "female",
                 latitude: 59.314610,
                 longitude: 18.071760
             }
@@ -211,18 +189,16 @@ export const USERS: User[] = [
         ]
     },
     {
-        id: 12,
-        username: "foo",
-        email: "foo@gmail.com",
-        profile_pic: "",
-        fullname: "Foo Bar",
-        password_hashes: "password",
+        uid: "12",
+        displayName: "foo",
+        photoURL: "",
         score: 140,
         found_pokemon: [
             {
                 id: 6,
                 name: "Ditto",
                 sprite: "",
+                gender: "female",
                 latitude: 59.314610,
                 longitude: 18.071760
             }
@@ -230,18 +206,16 @@ export const USERS: User[] = [
         ]
     },
     {
-        id: 13,
-        username: "morgan",
-        email: "morgan@gmail.com",
-        profile_pic: "",
-        fullname: "Morgan Freeman",
-        password_hashes: "password",
+        uid: "13",
+        displayName: "morgan",
+        photoURL: "",
         score: 999,
         found_pokemon: [
             {
                 id: 6,
                 name: "Ditto",
                 sprite: "",
+                gender: "female",
                 latitude: 59.314610,
                 longitude: 18.071760
             }

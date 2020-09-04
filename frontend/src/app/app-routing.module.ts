@@ -7,6 +7,7 @@ import { PokemonPageComponent } from "./pages/pokemon-page/pokemon-page.componen
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { UserStartPageComponent } from "./pages/user-start-page/user-start-page.component";
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { AddSpottedPokemonPageComponent } from "./pages/add-spotted-pokemon-page/add-spotted-pokemon-page.component";
 
 const redirectLoggedInToUserpage = () => redirectLoggedInTo(['userstartpage']);
 const redirectUnauthorizedToHome = () => redirectUnauthorizedTo(['']);
@@ -17,6 +18,8 @@ const routes: Routes = [
   { path: 'ranking', component: RankingPageComponent, canActivate:
   [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToHome} },
   { path: 'pokemon', component: PokemonPageComponent, canActivate:
+  [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToHome}},
+  { path: 'addspottedpokemon', component: AddSpottedPokemonPageComponent, canActivate:
   [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToHome}},
   { path: 'userstartpage', component: UserStartPageComponent, canActivate:
   [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToHome} },
