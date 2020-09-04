@@ -1,12 +1,11 @@
 <div class="main-div">
-    <div class="pokemon-div">
-        <h2>Pokémon</h2>
-        <app-pokemon-list [pokemons]="pokemons"></app-pokemon-list>
-    </div>
-
-
     <div class="spotter top-ten">
         <h2>Top 10 Spotters</h2>
         <app-ranking-list [users]="filterTopTen()"></app-ranking-list>
+    </div>
+
+    <div class="pokemon-div">
+        <h2>Pokémon</h2>
+        <app-pokemon-list [allPokemon]="pokemons"></app-pokemon-list>
     </div>
 </div>

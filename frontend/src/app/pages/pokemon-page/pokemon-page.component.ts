@@ -9,7 +9,7 @@ import { PokemonService } from "src/app/services/pokemon.service";
 })
 export class PokemonPageComponent implements OnInit {
 
-  public pokemons: Pokemon[];
+  public allPokemon: Pokemon[];
   
   constructor(private pokemonService: PokemonService) { }
 
@@ -18,7 +18,8 @@ export class PokemonPageComponent implements OnInit {
   }
   getAllPokemon() : void {
     this.pokemonService.getAllPokemon()
-       .subscribe(pokemons => this.pokemons = pokemons);
+       .subscribe(pokemons => this.allPokemon = pokemons);
+
   }
 }
 

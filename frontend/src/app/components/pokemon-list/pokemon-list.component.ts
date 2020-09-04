@@ -9,7 +9,8 @@ import { Pokemon } from "src/app/models/pokemon";
 })
 export class PokemonListComponent implements OnInit {
 
-  @Input() pokemons: Pokemon[];
+  @Input() allPokemon: Pokemon[];
+  @Input() showSpotted: boolean;
   
   constructor() { }
 

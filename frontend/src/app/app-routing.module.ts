@@ -24,6 +24,7 @@ const routes: Routes = [
   [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToHome} },
   { path: 'register', component: RegisterPageComponent, canActivate: [AngularFireAuthGuard],
   data: {authGuardPipe: redirectLoggedInToUserpage} }
+
 ];
 
 @NgModule({
