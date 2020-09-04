@@ -1,6 +1,7 @@
 const express = require('express');
 const apiRouter = express.Router();
 const db = require('../integration');
+const {isAuthenticated} = require('../middleware');
 
 /**
  * 
@@ -49,6 +50,15 @@ apiRouter.get('/users', async (_, res) => {
         res.status(200).json(users);
     } catch (error) {
         res.status(400).json({msg: "Couldn't load users!", error})
+    }
+})
+
+apiRouter.get('/user/:id', async (req, res) => {
+    try {
+        const user = await db.getUser(req.params.id);
+        res.status(200).json(user);
+    } catch (error) {
+        res.status(404).json({msg: "User not found", error})
     }
 })
 
