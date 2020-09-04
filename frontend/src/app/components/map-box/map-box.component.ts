@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import  * as Leaflet from "leaflet";
 import { User } from "../../models/user";
 import { MapService } from "../../services/map.service";
+import { Pokemon } from 'src/app/models/pokemon';
 
 @Component({
   selector: 'app-map-box',
@@ -17,13 +18,21 @@ export class MapBoxComponent implements OnInit {
 
   constructor(private mapService: MapService) {}
 
+  @Input() imageUrl: string;
+
+  @Output() clickAttempt: EventEmitter<any> = new EventEmitter();
+
   ngOnInit(): void {
     this.initMap();
     this.populateAllPokemons();
+
+    this.map.on('click', e => {
+      this.clickAttempt.emit(e.latlng);
+      this.mapService.setMarker(this.map, this.imageUrl, e.latlng);
+    })
   }
   
   initMap(): void {
-    
     this.map = Leaflet.map('map', {
       center: [this.lat, this.lng],
       zoom: 12
@@ -39,9 +48,4 @@ export class MapBoxComponent implements OnInit {
   populateAllPokemons() :void{
       this.mapService.populatePokemonByAllUsers(this.map);
   }
-  // onClickMarker(lat, lng) :void{
-  //   this.lat = lat;
-  //   this.lng = lng;
-  //   this.initMap();
-  // }
 }
