@@ -43,12 +43,21 @@ apiRouter.post("/spot", async (req, res) => {
 /**
  * 
  */
-apiRouter.get('/users', async (req, res) => {
+apiRouter.get('/users', async (_, res) => {
     try {
         const users = await db.getUsers();
         res.status(200).json(users);
     } catch (error) {
-        es.status(400).json({msg: "Couldn't load users!", error})
+        res.status(400).json({msg: "Couldn't load users!", error})
+    }
+})
+
+apiRouter.get('/top-ten', async (_, res) => {
+    try {
+        const topTenUsers = await db.getTopTenUsers();
+        res.status(200).json(topTenUsers);
+    } catch (error) {
+        res.status(400).json({msg: "Couldn't load top ten", error})
     }
 })
 
