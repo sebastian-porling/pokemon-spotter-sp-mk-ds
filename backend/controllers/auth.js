@@ -29,7 +29,7 @@ authRouter.post('/register', async (req, res) => {
 /**
  * 
  */
-authRouter.get('/signup', (req, res) => {
+authRouter.get('/signup', (_, res) => {
     res.redirect(`https://gitlab.com/oauth/authorize?${new URLSearchParams(auth_config).toString()}`)
 })
 
