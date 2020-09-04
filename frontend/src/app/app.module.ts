@@ -19,6 +19,7 @@ import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.componen
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MapBoxComponent } from './components/map-box/map-box.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { AddSpottedPokemonPageComponent } from './pages/add-spotted-pokemon-page/add-spotted-pokemon-page.component';
 
 
 
@@ -33,7 +34,8 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
     NavBarComponent,
     HomePageComponent,
     MapBoxComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
+    AddSpottedPokemonPageComponent
   ],
   imports: [
     BrowserModule,

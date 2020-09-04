@@ -5,7 +5,7 @@ import { UserService } from './user.service';
 
 let PokemonIcons = Leaflet.Icon.extend({
   options: {
-    iconSize: [30,30]
+    iconSize: [70,70]
   }
 })
 
