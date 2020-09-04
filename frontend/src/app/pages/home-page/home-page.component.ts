@@ -19,12 +19,11 @@ export class HomePageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUsers();
-    console.log(this.users);
-  
+
     this.getPokemons();
   }
 
-  async getUsers() {
+  getUsers() {
     this.userService.getUsers()
       .subscribe(users => this.users = users);
   } 

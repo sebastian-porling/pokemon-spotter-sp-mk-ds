@@ -19,6 +19,7 @@ export class PokemonPageComponent implements OnInit {
   getAllPokemon() : void {
     this.pokemonService.getAllPokemon()
        .subscribe(pokemons => this.allPokemon = pokemons);
+
   }
 }
 
