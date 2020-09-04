@@ -1,9 +1,10 @@
-  <div class="container">
-    <div class="row" >
-        <div class="col-sm text-center" *ngFor="let pokemon of allPokemon">
-            <img class="pokemon-img" src="{{pokemon.sprite}}" /> 
-            <p>{{pokemon.name}}</p>
-            <p *ngIf="showSpotted">Spotted#{{pokemon.spotted}}</p>
-        </div>
+<div class="container">
+  <div class="row">
+    <div class="col text-center" *ngFor="let pokemon of allPokemon">
+      <img class="pokemon-img" src="{{pokemon.sprite}}" />
+      <p>{{pokemon.name}}</p>
+      <p></p>
+      <p *ngIf="showSpotted">Spotted <span class="badge badge-pill badge-info">{{pokemon.spotted}}</span></p>
     </div>
+  </div>
 </div>

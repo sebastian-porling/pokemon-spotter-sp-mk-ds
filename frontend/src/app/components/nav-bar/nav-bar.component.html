@@ -1,35 +1,37 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" routerLink="/">Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" routerLink="/">Home</a>
 
-    <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-      <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li *ngIf="user" class="nav-item">
-          <a class="nav-link" routerLink="/pokemon">Pokemon</a>
-        </li>
-        <li *ngIf="user" class="nav-item">
-          <a class="nav-link" routerLink="/ranking">Ranking</a>
-        </li>
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+      <li *ngIf="user" class="nav-item">
+        <a class="nav-link" routerLink="/pokemon">Pokemon</a>
+      </li>
+      <li *ngIf="user" class="nav-item">
+        <a class="nav-link" routerLink="/ranking">Ranking</a>
+      </li>
 
-        <li *ngIf="user" class="nav-item">
-          <a class="nav-link" routerLink="/addspottedpokemon">Add spotted</a>
-        </li>
-        <li *ngIf="user" class="nav-item">
-          <a class="nav-link" routerLink="/userstartpage">User page</a>
-        </li>
-      </ul>
-      <span class="navbar-text">
-        <a *ngIf="!user" href="" data-toggle="modal" mdbBtn data-target="#modalSubscriptionForm">Sign in </a>
-        <a *ngIf="!user" href="/auth/signup">Sign up </a>
-        <a *ngIf="user" href="" (click)="signOut()">Sign out </a>
-      </span>
-    </div>
-  </nav>
+      <li *ngIf="user" class="nav-item">
+        <a class="nav-link" routerLink="/addspottedpokemon">Add spotted</a>
+      </li>
+      <li *ngIf="user" class="nav-item">
+        <a class="nav-link" routerLink="/userstartpage">User page</a>
+      </li>
+    </ul>
+    <span class="navbar-text">
+      <a *ngIf="!user" href="" data-toggle="modal" mdbBtn data-target="#modalSubscriptionForm">Sign in
+      </a>
+      <a *ngIf="!user" href="/auth/signup">Sign up </a>
+      <a *ngIf="user" href="" (click)="signOut()">Sign out </a>
+    </span>
+  </div>
+</nav>
 
-  <div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-    aria-hidden="true">
+<div class="modal fade" id="modalSubscriptionForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header text-center">
@@ -39,24 +41,25 @@
         </button>
       </div>
       <form [formGroup]="loginForm" (ngSubmit)="signIn()">
-      <div class="modal-body mx-3">
-
+        <div class="modal-body mx-3">
           <div class="md-form mb-4">
             <i class="fas fa-envelope prefix grey-text"></i>
-            <input type="email" id="form2" class="form-control validate" formControlName="email">
-            <label data-error="wrong" data-success="right" for="form2" >Your email</label>
+            <input type="email" id="form2" class="form-control validate" formControlName="email" />
+            <label data-error="wrong" data-success="right" for="form2">Your email</label>
           </div>
 
           <div class="md-form mb-4">
             <i class="fas fa-lock prefix grey-text"></i>
-            <input type="password" id="orangeForm-pass2" class="form-control validate" formControlName="password">
-            <label data-error="wrong" data-success="right" for="orangeForm-pass" >Your password</label>
+            <input type="password" id="orangeForm-pass2" class="form-control validate" formControlName="password" />
+            <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
           </div>
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button type="submit" class="btn btn-indigo" mdbBtn>Send <i class="fas fa-paper-plane-o ml-1" ></i></button>
-      </div>
-    </form>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button type="submit" class="btn btn-indigo" mdbBtn>
+            Send <i class="fas fa-paper-plane-o ml-1"></i>
+          </button>
+        </div>
+      </form>
     </div>
   </div>
 </div>

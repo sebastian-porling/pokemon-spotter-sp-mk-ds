@@ -1,2 +1,2 @@
-<app-map-box></app-map-box>
-<app-pokemon-list [allPokemon]="allPokemon"></app-pokemon-list>
+<app-map-box *ngIf="allPokemon"></app-map-box>
+<app-pokemon-list [allPokemon]="allPokemon" [showSpotted]="true"></app-pokemon-list>

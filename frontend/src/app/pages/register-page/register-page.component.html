@@ -1,7 +1,7 @@
 <p>Register!</p>
 <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
   <div class="md-form mb-4">
-    <label for="email" >email:</label>
+    <label for="email">email:</label>
     <input type="email" name="email" id="email" disabled formControlName="email" class="form-control validate">
   </div>
   <div class="md-form mb-4">
@@ -10,7 +10,8 @@
   </div>
   <div class="md-form mb-4">
     <label for="re-password">re-enter password</label>
-    <input type="password" name="re-password" id="re-password" formControlName="re_password" class="form-control validate">
+    <input type="password" name="re-password" id="re-password" formControlName="re_password"
+      class="form-control validate">
   </div>
   <div class="modal-footer d-flex justify-content-center">
     <button type="submit" class="btn btn-indigo">register</button>

@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { AuthService } from "../../services/auth.service";
-import { User } from "../../models/user";
-import { Pokemon } from "../../models/pokemon";
-
+import { User } from '../../models/user';
+import { Pokemon } from '../../models/pokemon';
+import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
-import { PokemonService } from "../../services/pokemon.service";
+import { PokemonService } from '../../services/pokemon.service';
 
 @Component({
   selector: 'app-add-spotted-pokemon-page',
@@ -16,35 +15,46 @@ export class AddSpottedPokemonPageComponent implements OnInit {
   public user: User;
   public pokemonList: Pokemon[];
   public pokemon: Pokemon;
-  
   public latitude: number;
   public longitude: number;
-  addPokemonForm: FormGroup = new FormGroup({
+  public addPokemonForm: FormGroup = new FormGroup({
     gender: new FormControl('', [Validators.required]),
     shiny: new FormControl('', [Validators.required])
-   });
+  });
 
-  constructor(private userService: UserService,
-              private pokemonService: PokemonService) { }
+  constructor(
+    private userService: UserService,
+    private pokemonService: PokemonService,
+    private router: Router
+    ) { }
 
-  get gender(): any {
-    return this.addPokemonForm.get('pokemon').value;
-  }
-  get shiny(): any{
-    return this.addPokemonForm.get('shiny').value;
-  }
-
+  /**
+   * Setup pokemon
+   */
   ngOnInit(): void {
-    this.loadPokemons();
+    this.loadAllPokemon();
   }
-  loadPokemons(): void{
-    this.pokemonService.getAllPokemon().subscribe(pokemons => this.pokemonList = pokemons);
-  } 
-  onClickPokemon(pokemon): void{
+
+  /**
+   * Fetch all pokemon
+   */
+  loadAllPokemon(): void {
+    this.pokemonService.getAllPokemon().subscribe(pokemon => this.pokemonList = pokemon);
+  }
+
+  /**
+   * Handle click event for pokemon.
+   * Set pokemon and reset the form
+   */
+  onClickPokemon(pokemon: Pokemon): void {
     this.addPokemonForm.reset();
     this.pokemon = pokemon;
   }
-  onSubmit() :void{
+
+  /**
+   * Handle submit and add pokemon to current user
+   */
+  onSubmit(): void {
     const formValues = this.addPokemonForm.value;
     this.userService.addPokemonToUser({
       gender: formValues.gender,
@@ -54,11 +64,18 @@ export class AddSpottedPokemonPageComponent implements OnInit {
       id: this.pokemon.id,
       sprite: this.pokemon.sprite,
       name: this.pokemon.name
-    }).then(res => console.log(res)).catch(res => console.log(res));
+    })
+    .then(_ => this.router.navigate(['/userstartpage']))
+    .catch(res => console.log(res));
   }
-  getLatLng(latlng) :void{
+
+  /**
+   * Parent method for map for getting pokemon coordinates
+   * @param latlng coordinates
+   */
+  getLatLng(latlng: any): void {
     this.latitude = latlng.lat;
     this.longitude = latlng.lng;
-    console.log(this.latitude, " " , this.longitude);
   }
+
 }

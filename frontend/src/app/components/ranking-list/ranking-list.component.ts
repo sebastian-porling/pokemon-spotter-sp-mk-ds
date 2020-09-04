@@ -1,5 +1,5 @@
 import { UserService } from '../../services/user.service';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { User } from '../../models/user';
 import { Location } from '@angular/common';
 
@@ -8,14 +8,13 @@ import { Location } from '@angular/common';
   templateUrl: './ranking-list.component.html',
   styleUrls: ['./ranking-list.component.css']
 })
-export class RankingListComponent implements OnInit {
-
-  constructor(public userService: UserService, private location: Location) { }
-
+export class RankingListComponent {
   @Input() users: User[];
   @Input() isSticky: boolean;
 
-  ngOnInit(): void {
+  constructor(
+    public userService: UserService,
+    private location: Location
+    ) { }
 
-  }
 }

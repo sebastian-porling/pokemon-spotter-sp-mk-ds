@@ -1,26 +1,27 @@
 <div *ngIf="user" class="user-info-div">
-    <div>
-        <h4>{{user.displayName}}</h4>
-        <h5>Score - {{user.score}}</h5>
-    </div>
+  <div>
+    <h4>{{user.displayName}}</h4>
+    <h5>Score - {{user.score}}</h5>
+  </div>
+  <hr>
+</div>
+
+<div class="main-div" *ngIf="topTenPokemon">
+  <div class="pokemon-div">
+    <h2>Top 10 rarest</h2>
+    <app-pokemon-list [allPokemon]="topTenPokemon" [showSpotted]="true"></app-pokemon-list>
     <hr>
+  </div>
 </div>
 
-<div class="main-div">
-    <div class="pokemon-div">
-        <h2>Top 10 rearest</h2>
-        <app-pokemon-list [allPokemon]="filterTopTenSpotted()" [showSpotted]="true"></app-pokemon-list>
-        <hr>
-    </div>
+<div *ngIf="spottedPokemon">
+  <h2>Spotted</h2>
+  <app-pokemon-list [allPokemon]="spottedPokemon" [showSpotted]="false"></app-pokemon-list>
+  <hr>
 </div>
 
-<h2>Spotted</h2>
-<app-pokemon-list [allPokemon]="spottedPokemon" [showSpotted]="false"></app-pokemon-list>
-
-<hr>
-
-<h2>Missing</h2>
-<app-pokemon-list [allPokemon]="missingPokemon" [showSpotted]="true"></app-pokemon-list>
-
-
+<div *ngIf="missingPokemon">
+  <h2>Missing</h2>
+  <app-pokemon-list [allPokemon]="missingPokemon" [showSpotted]="true"></app-pokemon-list>
+</div>
 

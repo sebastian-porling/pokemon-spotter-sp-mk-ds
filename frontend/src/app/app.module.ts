@@ -1,11 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-import { environment } from '../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { environment } from '../environments/environment';
 import { CookieService } from 'ngx-cookie-service';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
@@ -18,8 +19,6 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { MapBoxComponent } from './components/map-box/map-box.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { AddSpottedPokemonPageComponent } from './pages/add-spotted-pokemon-page/add-spotted-pokemon-page.component';
-
-
 
 @NgModule({
   declarations: [
