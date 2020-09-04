@@ -24,9 +24,8 @@ const routes: Routes = [
   { path: 'userstartpage', component: UserStartPageComponent, canActivate:
   [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToHome} },
   { path: 'register', component: RegisterPageComponent, canActivate: [AngularFireAuthGuard],
-  data: {authGuardPipe: redirectLoggedInToUserpage} },
-  { path: 'addSpottedPage', component: AddSpottedPageComponent, canActivate: [AngularFireAuthGuard],
   data: {authGuardPipe: redirectLoggedInToUserpage} }
+ 
 
 ];
 

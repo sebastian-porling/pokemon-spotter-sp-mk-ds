@@ -6,8 +6,6 @@ import { PokemonService } from "src/app/services/pokemon.service";
 import { ModifyObjectService } from "../../services/modify-object.service";
 import { Observable, of } from "rxjs";
 
-
-
 @Component({
   selector: 'app-user-start-page',
   templateUrl: './user-start-page.component.html',
@@ -22,9 +20,7 @@ export class UserStartPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.getPokemons();
-    
   }
-
 
   sortPokemonBySpotted() {
     if(!this.pokemons) return;
@@ -40,10 +36,6 @@ export class UserStartPageComponent implements OnInit {
     this.pokemonService.getPokemons()
       .subscribe(pokemons => this.pokemons = pokemons);
   }
-
-  // getUser(): void{
-  //  this.user = this.authService.user;
-  // }
   
 
 }
