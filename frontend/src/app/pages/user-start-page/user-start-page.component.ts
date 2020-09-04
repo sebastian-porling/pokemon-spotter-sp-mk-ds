@@ -1,7 +1,11 @@
+import { UserService } from './../../services/user.service';
+import { User } from './../../models/user';
 import { Component, OnInit } from '@angular/core';
 import { Pokemon } from "src/app/models/pokemon";
 import { PokemonService } from "src/app/services/pokemon.service";
 import { ModifyObjectService } from "../../services/modify-object.service";
+import { Observable, of } from "rxjs";
+
 
 
 @Component({
@@ -12,18 +16,23 @@ import { ModifyObjectService } from "../../services/modify-object.service";
 export class UserStartPageComponent implements OnInit {
 
   public pokemons: Pokemon[];
+  public user: any;
 
-  constructor(public pokemonService: PokemonService,private modifyObjectService : ModifyObjectService) { }
+  constructor(public pokemonService: PokemonService ,private modifyObjectService : ModifyObjectService) { }
 
   ngOnInit(): void {
     this.getPokemons();
+    
   }
 
 
   sortPokemonBySpotted() {
+    if(!this.pokemons) return;
+
     return this.pokemons.sort(this.modifyObjectService.sortByField("spotted"));
   }
   filterTopTenSpotted() {
+    if(!this.pokemons) return;
     return this.pokemons.sort(this.modifyObjectService.sortByField("spotted")).slice(0,10)
   }
   
@@ -31,5 +40,10 @@ export class UserStartPageComponent implements OnInit {
     this.pokemonService.getPokemons()
       .subscribe(pokemons => this.pokemons = pokemons);
   }
+
+  // getUser(): void{
+  //  this.user = this.authService.user;
+  // }
+  
 
 }
