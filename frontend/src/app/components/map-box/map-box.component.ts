@@ -23,6 +23,7 @@ export class MapBoxComponent implements OnInit {
   }
   
   initMap(): void {
+    
     this.map = Leaflet.map('map', {
       center: [this.lat, this.lng],
       zoom: 12
