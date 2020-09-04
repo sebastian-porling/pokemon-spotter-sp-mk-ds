@@ -1,1 +1,31 @@
-<p>add-spotted-pokemon-page works!</p>
+<div class="row d-flex justify-content-between">
+    <div *ngFor="let pokemon of pokemonList" class="col-sm pokemon" (click)="onClickPokemon(pokemon)" tabindex="-1">
+        <img src="{{pokemon.sprite}}">
+        <p>{{pokemon.name}}</p>
+    </div>
+</div>
+<div id="form" *ngIf="pokemon">
+    <form [formGroup]="addPokemonForm" (submit)="onSubmit()">
+        <div *ngIf="pokemon.genders.genderless === false">
+            <label for="male">Male</label>
+            <input type="radio" value="male" id="male" name="gender" formControlName="gender">
+            <label for="female">Female</label>
+            <input type="radio" value="female" id="female" name="gender" formControlName="gender">
+        </div>
+        <div *ngIf="pokemon.genders.genderless === true">
+            <label for="genderless">Genderless</label>
+            <input type="radio" value="genderless" id="genderless" name="gender" formControlName="gender" checked>
+        </div>
+        <div>
+            <h3>Shiny?</h3>
+            <label for="yes">Yes</label>
+            <input type="radio" [value]="true" id="yes" name="shiny" formControlName="shiny">
+            <label for="female">No</label>
+            <input type="radio" [value]="false" id="no" name="shiny" formControlName="shiny">
+        </div>
+        <input type="number" name="latitude" formControlName="latitude">
+        <input type="number" name="longitude" formControlName="longitude">
+        <input type="submit" value="Submit me">
+    </form>
+</div>
+

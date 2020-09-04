@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthService } from "../../services/auth.service";
 import { User } from "../../models/user";
 import { Pokemon } from "../../models/pokemon";
@@ -18,20 +18,48 @@ export class AddSpottedPokemonPageComponent implements OnInit {
   public pokemon: Pokemon;
   
   addPokemonForm: FormGroup = new FormGroup({
-    gender: new FormControl('')
+    gender: new FormControl('', [Validators.required]),
+    shiny: new FormControl('', [Validators.required]),
+    latitude: new FormControl('', [Validators.required]),
+    longitude: new FormControl('', [Validators.required])
    });
 
   constructor(private userService: UserService,
               private pokemonService: PokemonService) { }
 
-  get pokemonObj(): any {
+  get gender(): any {
     return this.addPokemonForm.get('pokemon').value;
+  }
+  get shiny(): any{
+    return this.addPokemonForm.get('shiny').value;
+  }
+  get latitude(): any {
+    return this.addPokemonForm.get('latitude').value;
+  }
+  get longitude(): any{
+    return this.addPokemonForm.get('longitude').value;
   }
 
   ngOnInit(): void {
-    
+    this.loadPokemons();
   }
   loadPokemons(): void{
-    this.pokemonService.getPokemons().subscribe(pokemons => this.pokemonList = pokemons);
+    this.pokemonService.getAllPokemon().subscribe(pokemons => this.pokemonList = pokemons);
+  } 
+  onClickPokemon(pokemon): void{
+    this.addPokemonForm.reset();
+    this.pokemon = pokemon;
+  }
+  onSubmit() :void{
+    const formValues = this.addPokemonForm.value;
+    this.userService.addPokemonToUser({
+      gender: formValues.gender,
+      shiny: formValues.shiny,
+      latitude: formValues.latitude,
+      longitude: formValues.longitude,
+      id: this.pokemon.id,
+      sprite: this.pokemon.sprite,
+      name: this.pokemon.name
+    }).then(res => console.log(res)).catch(res => console.log(res));
   }
 }

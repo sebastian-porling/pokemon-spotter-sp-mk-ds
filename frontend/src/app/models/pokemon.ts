@@ -3,7 +3,7 @@ export interface Pokemon{
     name: string;
     sprite: string;
     spotted: number;
-    gender: {
+    genders: {
         male: boolean,
         female: boolean,
         genderless: boolean
