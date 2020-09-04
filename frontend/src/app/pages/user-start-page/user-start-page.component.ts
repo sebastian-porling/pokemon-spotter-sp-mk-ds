@@ -1,12 +1,10 @@
-import { UserService } from './../../services/user.service';
-import { User } from './../../models/user';
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from "src/app/models/pokemon";
-import { PokemonService } from "src/app/services/pokemon.service";
-import { ModifyObjectService } from "../../services/modify-object.service";
-import { Observable, of } from "rxjs";
-
-
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
+import { Pokemon } from 'src/app/models/pokemon';
+import { PokemonService } from 'src/app/services/pokemon.service';
+import { ModifyObjectService } from '../../services/modify-object.service';
+import { Observable, of } from 'rxjs';
 
 @Component({
   selector: 'app-user-start-page',
@@ -14,36 +12,37 @@ import { Observable, of } from "rxjs";
   styleUrls: ['./user-start-page.component.css']
 })
 export class UserStartPageComponent implements OnInit {
+  public allPokemon: Pokemon[];
+  public user: User;
 
-  public pokemons: Pokemon[];
-  public user: any;
-
-  constructor(public pokemonService: PokemonService ,private modifyObjectService : ModifyObjectService) { }
+  constructor(
+    public pokemonService: PokemonService,
+    private modifyObjectService: ModifyObjectService,
+    private userService: UserService
+    ) { }
 
   ngOnInit(): void {
-    this.getPokemons();
-    
+    this.getAllPokemon();
+    this.getUser();
   }
 
 
-  sortPokemonBySpotted() {
-    if(!this.pokemons) return;
-
-    return this.pokemons.sort(this.modifyObjectService.sortByField("spotted"));
+  sortPokemonBySpotted(): any {
+    if (!this.allPokemon) { return; }
+    return this.allPokemon.sort(this.modifyObjectService.sortByField('spotted'));
   }
-  filterTopTenSpotted() {
-    if(!this.pokemons) return;
-    return this.pokemons.sort(this.modifyObjectService.sortByField("spotted")).slice(0,10)
-  }
-  
-  getPokemons() : void {
-    this.pokemonService.getPokemons()
-      .subscribe(pokemons => this.pokemons = pokemons);
+  filterTopTenSpotted(): any {
+    if (!this.allPokemon) { return; }
+    return this.allPokemon.sort(this.modifyObjectService.sortByField('spotted')).slice(0, 10);
   }
 
-  // getUser(): void{
-  //  this.user = this.authService.user;
-  // }
-  
+  getAllPokemon(): void {
+    this.pokemonService.getAllPokemon()
+      .subscribe(allPokemon => this.allPokemon = allPokemon);
+  }
 
+  async getUser(): Promise<any> {
+    this.user = await this.userService.getUser();
+    console.log(this.user);
+  }
 }

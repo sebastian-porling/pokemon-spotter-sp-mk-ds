@@ -98,6 +98,16 @@ module.exports.getTopTenUsers = async () => {
     }
 }
 
+module.exports.getUser = async (user_id) => {
+    try {
+        let snapshot = await db.collection('users').doc(`/${user_id}/`).get();
+        const user = snapshot.data();
+        return user;
+    } catch (error) {
+        throw error;
+    }
+}
+
 /**
  * 
  */

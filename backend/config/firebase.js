@@ -1,6 +1,8 @@
-export const environment = {
-  production: true,
-  firebase: {
+const firebase = require('firebase');
+require('firebase/auth');
+require('firebase/database');
+
+var config = {
     apiKey: "AIzaSyD1B29SQXLJIqtbEHyOSlvVy2QDL9YjH3Q",
     authDomain: "pokemon-spotter.firebaseapp.com",
     databaseURL: "https://pokemon-spotter.firebaseio.com",
@@ -9,5 +11,8 @@ export const environment = {
     messagingSenderId: "877105547164",
     appId: "1:877105547164:web:ac0a6455c3ee285de86a59",
     measurementId: "G-X5Y9XWL7PL"
-  }
-};
+}
+
+firebase.initializeApp(config);
+
+module.exports = firebase;
