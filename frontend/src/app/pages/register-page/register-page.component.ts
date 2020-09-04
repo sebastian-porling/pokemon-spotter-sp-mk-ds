@@ -18,6 +18,7 @@ export class RegisterPageComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    console.log(this.cookieService.get('gitlab'));
     this.gitlab = JSON.parse(this.cookieService.get('gitlab'));
     this.registerForm = new FormGroup({
       email: new FormControl(this.gitlab.email, Validators.required),

@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class PokemonService {
-  public pokemonUrl = 'http://localhost:3000/api/pokemon';
+  public pokemonUrl = '/api/pokemon';
 
   constructor(private http: HttpClient) { }
 

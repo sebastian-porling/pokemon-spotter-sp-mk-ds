@@ -2,27 +2,27 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <a class="navbar-brand" href="/">Home</a>
+    <a class="navbar-brand" routerLink="/">Home</a>
 
     <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li *ngIf="user" class="nav-item">
-          <a class="nav-link" href="http://localhost:4200/pokemon">Pokemon</a>
+          <a class="nav-link" routerLink="/pokemon">Pokemon</a>
         </li>
         <li *ngIf="user" class="nav-item">
-          <a class="nav-link" href="http://localhost:4200/ranking">Ranking</a>
+          <a class="nav-link" routerLink="/ranking">Ranking</a>
         </li>
 
         <li *ngIf="user" class="nav-item">
-          <a class="nav-link" href="http://localhost:4200/addspottedpokemon">Add spotted</a>
+          <a class="nav-link" routerLink="/addspottedpokemon">Add spotted</a>
         </li>
         <li *ngIf="user" class="nav-item">
-          <a class="nav-link" href="http://localhost:4200/userstartpage">User page</a>
+          <a class="nav-link" routerLink="/userstartpage">User page</a>
         </li>
       </ul>
       <span class="navbar-text">
         <a *ngIf="!user" href="" data-toggle="modal" mdbBtn data-target="#modalSubscriptionForm">Sign in </a>
-        <a *ngIf="!user" href="/register">Sign up </a>
+        <a *ngIf="!user" href="/auth/signup">Sign up </a>
         <a *ngIf="user" href="" (click)="signOut()">Sign out </a>
       </span>
     </div>
@@ -59,41 +59,4 @@
     </form>
     </div>
   </div>
-</div>
-
-<div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">Sign up</h4>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fas fa-user prefix grey-text"></i>
-          <input type="text" id="orangeForm-name" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
-        </div>
-        <div class="md-form mb-5">
-          <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="email" id="orangeForm-email" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-email">Your email</label>
-        </div>
-
-        <div class="md-form mb-4">
-          <i class="fas fa-lock prefix grey-text"></i>
-          <input type="password" id="orangeForm-pass" class="form-control validate">
-          <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
-        </div>
-
-      </div>
-      <div class="modal-footer d-flex justify-content-center">
-        <button (click)="signOut()" class="btn btn-deep-orange">Sign up</button>
-      </div>
-    </div>
-  </div>
-  
 </div>

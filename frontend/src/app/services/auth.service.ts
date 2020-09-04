@@ -1,15 +1,13 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from "rxjs";
+import { Observable, of } from 'rxjs';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { auth } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-
   public user: Observable<firebase.User>;
 
   constructor(
@@ -21,8 +19,8 @@ export class AuthService {
   }
   public signUp(user): void {
     console.log(user);
-    this.http.post('http://localhost:3000/auth/register', user,
-    {'headers': { 'content-type': 'application/json'} }).subscribe(
+    this.http.post('/auth/register', user,
+    {headers: { 'content-type': 'application/json'} }).subscribe(
       data => {
         this.signIn(user.email, user.password);
       },

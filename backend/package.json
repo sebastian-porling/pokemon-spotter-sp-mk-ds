@@ -4,6 +4,13 @@
   "description": "An express server for a pokemon spotter",
   "main": "index.js",
   "bin": "bin.js",
+  "pkg": {
+    "assets": [
+        "./node_modules/figlet/fonts/Standard.flf",
+        "./dist/**/*",
+        "./*"
+    ]
+},
   "scripts": {
     "start": "node bin.js",
     "dev": "nodemon bin.js",
