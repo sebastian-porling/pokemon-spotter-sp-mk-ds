@@ -9,7 +9,7 @@ admin.initializeApp({
 const db = admin.firestore();
 
 /**
- * 
+ * Generate list with pokemon in firebase
  */
 async function main() {
     response = await axios(`${API_URL}/pokemon?limit=151`);

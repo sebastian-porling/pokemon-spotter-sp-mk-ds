@@ -1,9 +1,9 @@
 .map-container {
-    margin: 30px;
-  }
-  .map-frame {
+    margin: 40px 0;
+}
+.map-frame {
     border: 2px solid black;
-  }
-  #map {
-    height: 400px;
-  }
+}
+#map {
+    height: 600px;
+}

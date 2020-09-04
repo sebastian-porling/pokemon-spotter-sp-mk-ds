@@ -11,12 +11,11 @@ router.use('/', staticPages);
 router.use(history({ disableDotRule: true }));
 router.use('/', staticPages);
 
-
 /**
  * 404 for the pages that doesn't exist
  */
-/*router.get("*", (_, res) => {
+router.get("*", (_, res) => {
     res.status(404).json({ msg: "The page doesn't exist" });
-});*/
+});
 
 module.exports = router;

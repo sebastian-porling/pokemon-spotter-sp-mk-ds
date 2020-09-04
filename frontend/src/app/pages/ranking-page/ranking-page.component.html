@@ -1,13 +1,12 @@
 <div class="container">
-    <div class="row">
-        <div class="col-sm">
-            <h2>Top 10 Spotters Ranking</h2>
-            <app-ranking-list [users]="filterTopTen()" [isSticky]="true" class="topTen"></app-ranking-list>
-        </div>
-        <div class="col-sm">
-            <h2>All Spotters Ranking List</h2>
-            <app-ranking-list [users]="sortusersByScore()" class="all"></app-ranking-list>
-        </div>
-
+  <div class="row">
+    <div class="col-sm">
+      <h2 class="text-center">Top 10 Spotters Ranking</h2>
+      <app-ranking-list [users]="filterTopTen()" [isSticky]="true" class="topTen"></app-ranking-list>
     </div>
+    <div class="col-sm">
+      <h2 class="text-center">All Spotters Ranking List</h2>
+      <app-ranking-list [users]="sortUsersByScore()" class="all"></app-ranking-list>
+    </div>
+  </div>
 </div>

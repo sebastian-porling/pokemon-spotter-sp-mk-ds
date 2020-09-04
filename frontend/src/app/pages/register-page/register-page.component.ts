@@ -17,8 +17,10 @@ export class RegisterPageComponent implements OnInit {
     private authService: AuthService
     ) { }
 
+  /**
+   * Fetch cookie and setup form
+   */
   ngOnInit(): void {
-    console.log(this.cookieService.get('gitlab'));
     this.gitlab = JSON.parse(this.cookieService.get('gitlab'));
     this.registerForm = new FormGroup({
       email: new FormControl(this.gitlab.email, Validators.required),
@@ -27,6 +29,9 @@ export class RegisterPageComponent implements OnInit {
     });
   }
 
+  /**
+   * Gather form values and send register event to server
+   */
   onSubmit(): void {
     const formvalues = this.registerForm.value;
     if (formvalues.password === formvalues.re_password) {

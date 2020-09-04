@@ -7,9 +7,9 @@ admin.initializeApp({
 const db = admin.firestore();
 
 /**
- * 
- * @param {*} user_id 
- * @param {*} pokemon 
+ * Add a spotted pokemon to the given user by id
+ * @param {*} user_id user id string
+ * @param {*} pokemon found pokemon object
  */
 module.exports.spot = async (user_id, pokemon) => {
     try {
@@ -33,7 +33,17 @@ module.exports.spot = async (user_id, pokemon) => {
       }
 };
 
+/**
+ * Helper function for getting filtering rare index
+ * @param {*} pokemon_id 
+ */
 const getRareIndex = (pokemon_id) => (pokemon) => pokemon.id === pokemon_id; 
+
+/**
+ * Calculate new score for user
+ * @param {Object} pokemon pokemon object
+ * @param {Object} user user object
+ */
 const calculateNewScore = async (pokemon, user) => {
     try {
         const allPokemon = await getAllPokemon();
@@ -49,8 +59,8 @@ const calculateNewScore = async (pokemon, user) => {
 }
 
 /**
- * 
- * @param {*} user 
+ * Create a new user
+ * @param {Object} user 
  */
 module.exports.createUser = async (user) => {
     try {
@@ -75,7 +85,7 @@ module.exports.createUser = async (user) => {
 }
 
 /**
- * 
+ * Fetch all users
  */
 module.exports.getUsers = async () => {
     try {
@@ -87,6 +97,9 @@ module.exports.getUsers = async () => {
     }
 }
 
+/**
+ * Fetch top ten users
+ */
 module.exports.getTopTenUsers = async () => {
     try {
         const usersRef = db.collection('users');
@@ -98,6 +111,10 @@ module.exports.getTopTenUsers = async () => {
     }
 }
 
+/**
+ * Fetch user by id
+ * @param {Integer} user_id user id
+ */
 module.exports.getUser = async (user_id) => {
     try {
         let snapshot = await db.collection('users').doc(`/${user_id}/`).get();
@@ -109,7 +126,7 @@ module.exports.getUser = async (user_id) => {
 }
 
 /**
- * 
+ * Fetch all pokemon
  */
 const getAllPokemon = async () => {
     try {
@@ -123,8 +140,8 @@ const getAllPokemon = async () => {
 module.exports.getAllPokemon = getAllPokemon;
 
 /**
- * 
- * @param {*} pokemon_id 
+ * Fetch pokemon by if
+ * @param {Integer} pokemon_id pokemon id
  */
 module.exports.getPokemon = async (pokemon_id) => {
     pokemon_id = 1;
@@ -134,6 +151,6 @@ module.exports.getPokemon = async (pokemon_id) => {
         console.log(pokemon);
         return pokemon;
     } catch (error) {
-        
+        throw error;
     }
 }

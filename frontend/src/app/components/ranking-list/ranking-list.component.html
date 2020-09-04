@@ -1,18 +1,20 @@
-    <div [ngClass]="{'top-ten':isSticky}" class="main-div"> 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let user of users;index as i;">
-                    <th scope="row">{{i+1}}</th>
-                    <td>{{user.displayName}}</td>
-                    <td>{{user.score}}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div [ngClass]="{'top-ten':isSticky}" class="main-div" *ngIf="users">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th></th>
+        <th>user</th>
+        <th>score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users; index as i;">
+        <th scope="row">{{i+1}}</th>
+        <th><img src="{{user.photoURL}}" height="30" width="30" class="rounded-circle z-depth-1"></th>
+        <td>{{user.displayName}}</td>
+        <td>{{user.score}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

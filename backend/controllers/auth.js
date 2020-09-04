@@ -4,7 +4,7 @@ const db = require('../integration');
 const axios = require('axios');
 
 const auth_config = {
-    redirect_uri: 'http://localhost:3000/auth/signupGit',
+    redirect_uri: 'https://pokemon-spotter-sp-mk-ds.herokuapp.com/auth/signupGit',
     client_id: '014e6cb338a44b0a7439f3505e65775eb6016cb6b19589e324cfb14ffc4ba620',
     client_secret: '069554bc3719ecedcf6e3de9ef5c4beee540ca7f35b0929bad683774e69752d6',
     scope: 'read_user openid profile email', 
@@ -13,7 +13,7 @@ const auth_config = {
 }
 
 /**
- * 
+ * Registers new user
  */
 authRouter.post('/register', async (req, res) => {
     const user = req.body;
@@ -27,14 +27,15 @@ authRouter.post('/register', async (req, res) => {
 })
 
 /**
- * 
+ * Redirect signup to gitlab oauth
  */
 authRouter.get('/signup', (_, res) => {
     res.redirect(`https://gitlab.com/oauth/authorize?${new URLSearchParams(auth_config).toString()}`)
 })
 
 /**
- * 
+ * Callback from gitlab
+ * Send token to frontend with gitlab data
  */
 authRouter.get('/signupGit', async (req, res) => {
     try {
@@ -56,7 +57,7 @@ authRouter.get('/signupGit', async (req, res) => {
 })
 
 /**
- * 
+ * 404
  */
 authRouter.get('*', (_, res) => {
     res.status(404).json({msg: "This page doesn't exist"});

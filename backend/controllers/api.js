@@ -4,7 +4,7 @@ const db = require('../integration');
 const {isAuthenticated} = require('../middleware');
 
 /**
- * 
+ * Fetches all pokemon
  */
 apiRouter.get("/pokemon", async (_, res) => {
     try {
@@ -16,7 +16,7 @@ apiRouter.get("/pokemon", async (_, res) => {
 })
 
 /**
- * 
+ * Fetches pokemon by id
  */
 apiRouter.get('/pokemon/:id', async (req, res) => {
     const pokemon_id = req.params.id;
@@ -29,20 +29,20 @@ apiRouter.get('/pokemon/:id', async (req, res) => {
 })
 
 /**
- * 
+ * Adds a spotted pokemon to a user
  */
 apiRouter.post("/spot", async (req, res) => {
     const {user_id, pokemon} = req.body;
     try {
         await db.spot(user_id, pokemon);
-        res.sendStatus(201);
+        res.status(201).json({msg: "Created"});
     } catch (error) {
         res.status(400).send({msg: "User or pokemon doesn't exist", error});
     }
 })
 
 /**
- * 
+ * Fetches all users
  */
 apiRouter.get('/users', async (_, res) => {
     try {
@@ -53,6 +53,9 @@ apiRouter.get('/users', async (_, res) => {
     }
 })
 
+/**
+ * Fetches user by id
+ */
 apiRouter.get('/user/:id', async (req, res) => {
     try {
         const user = await db.getUser(req.params.id);
@@ -62,6 +65,9 @@ apiRouter.get('/user/:id', async (req, res) => {
     }
 })
 
+/**
+ * Fetches top-ten users
+ */
 apiRouter.get('/top-ten', async (_, res) => {
     try {
         const topTenUsers = await db.getTopTenUsers();
@@ -72,7 +78,7 @@ apiRouter.get('/top-ten', async (_, res) => {
 })
 
 /**
- * 
+ * 404
  */
 apiRouter.get('*', (_, res) => {
     res.status(404).json({msg: "This path isn't implemented"})

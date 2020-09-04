@@ -1,30 +1,50 @@
+<h2 class="text-center pt-3">Choose your pokemon!</h2>
+<h5 class="text-center">Then scroll down...</h5>
 <div class="row d-flex justify-content-between">
-    <div *ngFor="let pokemon of pokemonList" class="col-sm pokemon" (click)="onClickPokemon(pokemon)" tabindex="-1">
-        <img src="{{pokemon.sprite}}">
-        <p>{{pokemon.name}}</p>
-    </div>
+  <div *ngFor="let pokemon of pokemonList" class="col-sm pokemon" (click)="onClickPokemon(pokemon)" tabindex="-1">
+    <img src="{{pokemon.sprite}}">
+    <p>{{pokemon.name}}</p>
+  </div>
 </div>
 <div id="form" *ngIf="pokemon">
-    <form [formGroup]="addPokemonForm" (submit)="onSubmit()">
-        <div *ngIf="pokemon.genders.genderless === false" class="form-check-inline">
-            <label class="form-check-label" for="male">Male: </label>
-            <input type="radio" class="form-check-input" value="male" id="male" name="gender" formControlName="gender">
-            <label class="form-check-label" for="female">Female: </label>
-            <input type="radio" class="form-check-input" value="female" id="female" name="gender" formControlName="gender">
+  <form [formGroup]="addPokemonForm" (submit)="onSubmit()" >
+    <div class="d-flex justify-content-around pt-5">
+      <div>
+        <h4 class="text-center">Gender: </h4>
+        <div *ngIf="pokemon.genders.genderless === false">
+          <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" class="custom-control-input" value="male" id="male" name="gender" formControlName="gender">
+            <label class="custom-control-label" for="male">Male</label>
+          </div>
+           <div class="custom-control custom-radio custom-control-inline">
+            <input type="radio" class="custom-control-input" value="female" id="female" name="gender" formControlName="gender">
+            <label  class="custom-control-label" for="female"> Female </label>
+          </div>
         </div>
-        <div class="form-check-inline" *ngIf="pokemon.genders.genderless === true">
-            <label class="form-check-label" for="genderless">Genderless: </label>
-            <input type="radio" class="form-check-input" value="genderless" id="genderless" name="gender" formControlName="gender" checked>
+        <div class="custom-control custom-radio custom-control-inline" *ngIf="pokemon.genders.genderless === true">
+          <label  class="custom-control-label" for="genderless"> Genderless </label>
+          <input type="radio" class="custom-control-input" value="genderless" id="genderless" name="gender"
+            formControlName="gender" checked>
         </div>
-        <h3>Shiny?</h3>
-        <div class="form-check-inline">
-            <label class="form-check-label" for="yes">Yes: </label>
-            <input type="radio" class="form-check-input" [value]="true" id="yes" name="shiny" formControlName="shiny">
-            <label class="form-check-label" for="female">No: </label>
-            <input type="radio" class="form-check-input" [value]="false" id="no" name="shiny" formControlName="shiny">
+      </div>
+      <div>
+        <h4 class="text-center">Shiny: </h4>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio"  class="custom-control-input" [value]="true" id="yes" name="shiny" formControlName="shiny">
+          <label  class="custom-control-label" for="yes"> Yes </label>
         </div>
-        <app-map-box [imageUrl]="pokemon.sprite" (clickAttempt)="getLatLng($event)"></app-map-box>
-        <input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">
-    </form>
-</div>
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" class="custom-control-input" [value]="false" id="no" name="shiny" formControlName="shiny">
+          <label  class="custom-control-label" for="female"> No </label>
+        </div>
+      </div>
+    </div>
 
+    <div class="pb-5 pt-5">
+      <h4 class="text-center">Location: </h4>
+      <app-map-box [imageUrl]="pokemon.sprite" (clickAttempt)="getLatLng($event)"></app-map-box>
+      <input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">
+    </div>
+
+  </form>
+</div>

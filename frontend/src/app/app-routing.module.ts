@@ -1,12 +1,13 @@
-import { RankingPageComponent } from './pages/ranking-page/ranking-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
-import { PokemonPageComponent } from "./pages/pokemon-page/pokemon-page.component";
-import { HomePageComponent } from "./pages/home-page/home-page.component";
-import { UserStartPageComponent } from "./pages/user-start-page/user-start-page.component";
+
+import { RankingPageComponent } from './pages/ranking-page/ranking-page.component';
+import { PokemonPageComponent } from './pages/pokemon-page/pokemon-page.component';
+import { HomePageComponent } from './pages/home-page/home-page.component';
+import { UserStartPageComponent } from './pages/user-start-page/user-start-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
-import { AddSpottedPokemonPageComponent } from "./pages/add-spotted-pokemon-page/add-spotted-pokemon-page.component";
+import { AddSpottedPokemonPageComponent } from './pages/add-spotted-pokemon-page/add-spotted-pokemon-page.component';
 
 const redirectLoggedInToUserpage = () => redirectLoggedInTo(['userstartpage']);
 const redirectUnauthorizedToHome = () => redirectUnauthorizedTo(['']);
