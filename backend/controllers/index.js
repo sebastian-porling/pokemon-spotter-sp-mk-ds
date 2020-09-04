@@ -16,7 +16,7 @@ router.use(staticPages);
 /**
  * 404 for the pages that doesn't exist
  */
-router.get("*", (req, res) => {
+router.get("*", (_, res) => {
     /* TODO: change to static error html page */
     res.status(404).json({ msg: "The page doesn't exist" });
 });
