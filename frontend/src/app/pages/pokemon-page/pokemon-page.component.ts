@@ -14,10 +14,10 @@ export class PokemonPageComponent implements OnInit {
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.getPokemons();
+    this.getAllPokemon();
   }
-  getPokemons() : void {
-    this.pokemonService.getPokemons()
+  getAllPokemon() : void {
+    this.pokemonService.getAllPokemon()
        .subscribe(pokemons => this.pokemons = pokemons);
   }
 }

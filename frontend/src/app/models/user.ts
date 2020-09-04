@@ -10,7 +10,8 @@ export interface User {
             sprite: string,
             gender: string,
             latitude: number,
-            longitude: number
+            longitude: number,
+            shiny: boolean
         }
     ]
 }
