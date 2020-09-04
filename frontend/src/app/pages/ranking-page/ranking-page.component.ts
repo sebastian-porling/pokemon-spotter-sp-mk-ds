@@ -31,6 +31,6 @@ export class RankingPageComponent implements OnInit {
   
   filterTopTen() {
     if(!this.users) return;
-    return this.users.sort(this.modifyObjectService.sortByField("score")).slice(0,10)
+    return this.users.sort(this.modifyObjectService.sortByField("score")).slice(0,10);
   }
 }

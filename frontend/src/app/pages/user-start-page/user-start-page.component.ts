@@ -1,10 +1,11 @@
-import { UserService } from './../../services/user.service';
-import { User } from './../../models/user';
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from "src/app/models/pokemon";
-import { PokemonService } from "src/app/services/pokemon.service";
-import { ModifyObjectService } from "../../services/modify-object.service";
-import { Observable, of } from "rxjs";
+import { User } from 'src/app/models/user';
+import { UserService } from 'src/app/services/user.service';
+import { Pokemon } from 'src/app/models/pokemon';
+import { PokemonService } from 'src/app/services/pokemon.service';
+import { ModifyObjectService } from '../../services/modify-object.service';
+import { Observable, of } from 'rxjs';
+import { __awaiter } from 'tslib';
 
 @Component({
   selector: 'app-user-start-page',
@@ -12,30 +13,56 @@ import { Observable, of } from "rxjs";
   styleUrls: ['./user-start-page.component.css']
 })
 export class UserStartPageComponent implements OnInit {
+  public allPokemon: Pokemon[];
+  public user: User;
+  public spottedPokemon: any;
+  public missingPokemon: any;
+  public showSpotted: boolean;
 
-  public pokemons: Pokemon[];
-  public user: any;
 
-  constructor(public pokemonService: PokemonService ,private modifyObjectService : ModifyObjectService) { }
+  constructor(
+    public pokemonService: PokemonService,
+    private modifyObjectService: ModifyObjectService,
+    private userService: UserService
+  ) { }
 
-  ngOnInit(): void {
-    this.getPokemons();
+  async ngOnInit(): Promise<any> {
+    await this.getAllPokemons();
+    await this.getUser();
+    this.filterSpotted();
+    this.filterMissing();
+
   }
 
-  sortPokemonBySpotted() {
-    if(!this.pokemons) return;
+  filterSpotted() {
+    this.spottedPokemon = this.user.found_pokemon;
+  }
 
-    return this.pokemons.sort(this.modifyObjectService.sortByField("spotted"));
-  }
-  filterTopTenSpotted() {
-    if(!this.pokemons) return;
-    return this.pokemons.sort(this.modifyObjectService.sortByField("spotted")).slice(0,10)
-  }
-  
-  getPokemons() : void {
-    this.pokemonService.getPokemons()
-      .subscribe(pokemons => this.pokemons = pokemons);
-  }
-  
+  filterMissing() {
+    if (this.user === undefined || this.allPokemon === undefined) return;
 
+    this.missingPokemon = this.allPokemon
+      .filter(pokemonGlobal => !this.spottedPokemon
+        .find((pokemonSpotted: { id: number; }) => pokemonGlobal.id === pokemonSpotted.id));
+  }
+
+
+  sortPokemonBySpotted(): any {
+    if (!this.allPokemon) { return; }
+    return this.allPokemon.sort(this.modifyObjectService.sortByFieldRearest('spotted'));
+  }
+  filterTopTenSpotted(): any {
+    if (!this.allPokemon) { return; }
+    return this.allPokemon.sort(this.modifyObjectService.sortByFieldRearest('spotted')).slice(0, 10);
+  }
+
+  async getAllPokemons(): Promise<any> {
+    this.allPokemon = await this.pokemonService.getAllPokemon().toPromise();
+  }
+
+  async getUser(): Promise<any> {
+    this.user = await this.userService.getUser();
+    console.log(this.user, this.allPokemon);
+
+  }
 }

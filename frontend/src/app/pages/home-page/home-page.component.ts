@@ -20,8 +20,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.getUsers();
     console.log(this.users);
-    
-    //this.sortAndFilterTopTenUsersByScore()
+  
     this.getPokemons();
   }
 
@@ -29,14 +28,9 @@ export class HomePageComponent implements OnInit {
     this.userService.getUsers()
       .subscribe(users => this.users = users);
   } 
-
-  // sortAndFilterTopTenUsersByScore() {
-  //   let sorteredList = this.users.sort((a, b) => b.score - a.score);
-  //   this.topTen = sorteredList.slice(0, 10);
-  // }
   
   getPokemons() : void {
-    this.pokemonService.getPokemons()
+    this.pokemonService.getAllPokemon()
       .subscribe(pokemons => this.pokemons = pokemons);
   }
   filterTopTen() {

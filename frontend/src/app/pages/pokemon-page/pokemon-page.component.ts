@@ -9,16 +9,16 @@ import { PokemonService } from "src/app/services/pokemon.service";
 })
 export class PokemonPageComponent implements OnInit {
 
-  public pokemons: Pokemon[];
+  public allPokemon: Pokemon[];
   
   constructor(private pokemonService: PokemonService) { }
 
   ngOnInit(): void {
-    this.getPokemons();
+    this.getAllPokemon();
   }
-  getPokemons() : void {
-    this.pokemonService.getPokemons()
-       .subscribe(pokemons => this.pokemons = pokemons);
+  getAllPokemon() : void {
+    this.pokemonService.getAllPokemon()
+       .subscribe(pokemons => this.allPokemon = pokemons);
   }
 }
 
