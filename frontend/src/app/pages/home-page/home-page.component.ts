@@ -25,7 +25,7 @@ export class HomePageComponent implements OnInit {
     this.getPokemons();
   }
 
-  async getUsers() {
+  getUsers() {
     this.userService.getUsers()
       .subscribe(users => this.users = users);
   } 
