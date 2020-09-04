@@ -8,7 +8,7 @@ import { User } from '../models/user';
   providedIn: 'root'
 })
 export class UserService {
-  public usersUrl = 'http://localhost:3000/api/users';
+  public usersUrl = '/api/users';
 
   constructor(
     public authNg: AngularFireAuth,
@@ -23,14 +23,14 @@ export class UserService {
   async getUser(): Promise<User> {
     const user = await this.authNg.currentUser;
     if (user !== null) {
-      return this.http.get<User>(`http://localhost:3000/api/user/${user.uid}`).toPromise();
+      return this.http.get<User>(`/api/user/${user.uid}`).toPromise();
     }
 
   }
   async addPokemonToUser(pokemon: any): Promise<any> {
     const user = await this.authNg.currentUser;
     if (user !== null)
-      return this.http.post<any>(`http://localhost:3000/api/spot`, {user_id:user.uid, pokemon}, {'headers': { 'content-type': 'application/json'} })
+      return this.http.post<any>(`/api/spot`, {user_id:user.uid, pokemon}, {'headers': { 'content-type': 'application/json'} })
       .toPromise();
   }
 }

@@ -38,7 +38,6 @@ export class NavBarComponent implements OnInit {
   public signIn(): void {
     this.authService.signIn(this.email, this.password);
     this.checkUser();
-
   }
 
   public signUp(): void {
