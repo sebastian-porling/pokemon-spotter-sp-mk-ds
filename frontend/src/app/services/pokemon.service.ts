@@ -12,7 +12,7 @@ export class PokemonService {
   public pokemonUrl = 'http://localhost:3000/api/pokemon';
 
   constructor(private http: HttpClient) { }
-
+  
   getPokemons(): Observable<Pokemon[]> {
     return this.http.get<Pokemon[]>(this.pokemonUrl);
   }

@@ -1,7 +1,8 @@
+import { AddSpottedPageComponent } from './pages/add-spotted-page/add-spotted-page.component';
+import { RankingPageComponent } from './pages/ranking-page/ranking-page.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AngularFireAuthGuard, redirectLoggedInTo, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
-import { RankingPageComponent } from './pages/ranking-page/ranking-page.component';
 import { PokemonPageComponent } from "./pages/pokemon-page/pokemon-page.component";
 import { HomePageComponent } from "./pages/home-page/home-page.component";
 import { UserStartPageComponent } from "./pages/user-start-page/user-start-page.component";
@@ -12,6 +13,7 @@ const redirectLoggedInToUserpage = () => redirectLoggedInTo(['userstartpage']);
 const redirectUnauthorizedToHome = () => redirectUnauthorizedTo(['']);
 
 const routes: Routes = [
+
   { path: '', component: HomePageComponent},
   { path: 'ranking', component: RankingPageComponent, canActivate:
   [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToHome} },
@@ -22,7 +24,10 @@ const routes: Routes = [
   { path: 'userstartpage', component: UserStartPageComponent, canActivate:
   [AngularFireAuthGuard], data: {authGuardPipe: redirectUnauthorizedToHome} },
   { path: 'register', component: RegisterPageComponent, canActivate: [AngularFireAuthGuard],
+  data: {authGuardPipe: redirectLoggedInToUserpage} },
+  { path: 'addSpottedPage', component: AddSpottedPageComponent, canActivate: [AngularFireAuthGuard],
   data: {authGuardPipe: redirectLoggedInToUserpage} }
+
 ];
 
 @NgModule({

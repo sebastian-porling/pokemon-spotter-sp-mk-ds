@@ -1,0 +1,29 @@
+.main-div{
+    text-align: center;
+}
+
+.pokemon-div{
+    
+    display: inline-block;
+    padding: 100px;
+    
+}
+.user-info-div{
+    
+    display: inline-block;
+    padding: 100px;
+
+
+}
+.user-info{
+    position: relative;
+    bottom: 135px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+h2{
+    text-decoration: underline;
+}

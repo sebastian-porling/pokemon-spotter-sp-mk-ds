@@ -19,3 +19,10 @@ export class UserService {
     return this.http.get<User[]>(this.usersUrl);
   }
 }
+
+
+// public httpOptions = {
+//   headers: new HttpHeaders({'Content-Type': 'application/json'})
+// };
+
+

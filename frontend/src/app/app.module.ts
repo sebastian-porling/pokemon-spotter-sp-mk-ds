@@ -6,10 +6,8 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RankingPageComponent } from './pages/ranking-page/ranking-page.component';
 import { UserStartPageComponent } from './pages/user-start-page/user-start-page.component';
