@@ -1,5 +1,6 @@
 const express = require('express');
 const authRouter = express.Router();
+const db = require('../integration');
 const axios = require('axios');
 
 const auth_config = {
@@ -9,18 +10,32 @@ const auth_config = {
     scope: 'read_user openid profile email', 
     response_type: 'code',
     state: "test123"
-  }
+}
 
-
-authRouter.post('/register', (req, res) => {
-    const credentials = req.body;
+/**
+ * 
+ */
+authRouter.post('/register', async (req, res) => {
+    const user = req.body;
+    try {
+        const result = await db.createUser(user);
+        res.status(200).json(result);
+    } catch (error) {
+        res.status(400).send({msg: error});
+    }
+    
 })
 
+/**
+ * 
+ */
 authRouter.get('/signup', (req, res) => {
-    
     res.redirect(`https://gitlab.com/oauth/authorize?${new URLSearchParams(auth_config).toString()}`)
 })
 
+/**
+ * 
+ */
 authRouter.get('/signupGit', async (req, res) => {
     try {
         const obj = {
@@ -34,12 +49,17 @@ authRouter.get('/signupGit', async (req, res) => {
         result = await axios.get(`https://gitlab.com/api/v4/user?access_token=${result.data.access_token}`);
         const gitlab_acc = result.data;
         res.cookie('gitlab', JSON.stringify(gitlab_acc));
-        //res.set('gitlab' , JSON.stringify(gitlab_acc));
         res.redirect('http://localhost:4200/register');
     } catch (error) {
-        console.log(error)
+        res.status(500).json({msg: error});
     }
 })
 
+/**
+ * 
+ */
+authRouter.get('*', (_, res) => {
+    res.status(404).json({msg: "This page doesn't exist"});
+})
 
 module.exports = authRouter;
