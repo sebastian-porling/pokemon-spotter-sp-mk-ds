@@ -21,6 +21,7 @@ export class RankingListComponent implements OnInit {
   @Input() isSticky : boolean;
 
   ngOnInit(): void {
+    
     // this.getUsers();
     // this.sortusersByScore();
     // this.filterTopTen();

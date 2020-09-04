@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable, of } from 'rxjs';
 import { User } from '../models/user';
-import { USERS } from './../mock-data/mock-users';
-import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  public usersUrl = 'http://localhost:3000/api/users';
 
   constructor(
     public authNg: AngularFireAuth,
@@ -16,7 +16,8 @@ export class UserService {
   ) { }
 
   getUsers(): Observable<User[]> {
-    return of(USERS);
+    console.log('UserService: ' + this.http.get<User[]>(this.usersUrl));
+    return this.http.get<User[]>(this.usersUrl);
   }
 
   async getUser(): Promise<User> {

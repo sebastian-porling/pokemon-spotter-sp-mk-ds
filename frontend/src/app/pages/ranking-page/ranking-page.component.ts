@@ -24,10 +24,13 @@ export class RankingPageComponent implements OnInit {
   }
 
   sortusersByScore() {
+    if(!this.users) return;
+
     return this.users.sort(this.modifyObjectService.sortByField("score"));
   }
   
   filterTopTen() {
+    if(!this.users) return;
     return this.users.sort(this.modifyObjectService.sortByField("score")).slice(0,10)
   }
 }

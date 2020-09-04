@@ -23,6 +23,7 @@ export class MapBoxComponent implements OnInit {
   }
   
   initMap(): void {
+    
     this.map = Leaflet.map('map', {
       center: [this.lat, this.lng],
       zoom: 12
@@ -38,4 +39,9 @@ export class MapBoxComponent implements OnInit {
   populateAllPokemons() :void{
       this.mapService.populatePokemonByAllUsers(this.map);
   }
+  // onClickMarker(lat, lng) :void{
+  //   this.lat = lat;
+  //   this.lng = lng;
+  //   this.initMap();
+  // }
 }
