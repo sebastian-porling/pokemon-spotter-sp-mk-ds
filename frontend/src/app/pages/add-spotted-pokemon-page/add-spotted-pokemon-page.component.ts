@@ -17,11 +17,11 @@ export class AddSpottedPokemonPageComponent implements OnInit {
   public pokemonList: Pokemon[];
   public pokemon: Pokemon;
   
+  public latitude: number;
+  public longitude: number;
   addPokemonForm: FormGroup = new FormGroup({
     gender: new FormControl('', [Validators.required]),
-    shiny: new FormControl('', [Validators.required]),
-    latitude: new FormControl('', [Validators.required]),
-    longitude: new FormControl('', [Validators.required])
+    shiny: new FormControl('', [Validators.required])
    });
 
   constructor(private userService: UserService,
@@ -32,12 +32,6 @@ export class AddSpottedPokemonPageComponent implements OnInit {
   }
   get shiny(): any{
     return this.addPokemonForm.get('shiny').value;
-  }
-  get latitude(): any {
-    return this.addPokemonForm.get('latitude').value;
-  }
-  get longitude(): any{
-    return this.addPokemonForm.get('longitude').value;
   }
 
   ngOnInit(): void {
@@ -55,11 +49,16 @@ export class AddSpottedPokemonPageComponent implements OnInit {
     this.userService.addPokemonToUser({
       gender: formValues.gender,
       shiny: formValues.shiny,
-      latitude: formValues.latitude,
-      longitude: formValues.longitude,
+      latitude: this.latitude,
+      longitude: this.longitude,
       id: this.pokemon.id,
       sprite: this.pokemon.sprite,
       name: this.pokemon.name
     }).then(res => console.log(res)).catch(res => console.log(res));
+  }
+  getLatLng(latlng) :void{
+    this.latitude = latlng.lat;
+    this.longitude = latlng.lng;
+    console.log(this.latitude, " " , this.longitude);
   }
 }

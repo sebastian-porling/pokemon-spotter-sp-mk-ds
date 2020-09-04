@@ -14,6 +14,8 @@ let PokemonIcons = Leaflet.Icon.extend({
 })
 export class MapService {
 
+  public marker: any;
+
   constructor(private userService: UserService) { }
 
   public populatePokemonByUser(user: User, map: any){
@@ -24,5 +26,16 @@ export class MapService {
   public populatePokemonByAllUsers(map: any){
     this.userService.getUsers().subscribe(users => users.forEach(user => this.populatePokemonByUser(user, map)));
   }
+  public setMarker(map: any, imageUrl: string, latlng: any){
+    if(imageUrl === undefined)
+      return;
+    let newMarker = new Leaflet.marker([latlng.lat, latlng.lng], {icon: new PokemonIcons({iconUrl: imageUrl, icon:imageUrl})});
+    if(this.marker) 
+      map.removeLayer(this.marker);
+    
+    this.marker = newMarker; 
+    newMarker.addTo(map);
+  }
+ 
 }
 

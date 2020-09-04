@@ -6,26 +6,25 @@
 </div>
 <div id="form" *ngIf="pokemon">
     <form [formGroup]="addPokemonForm" (submit)="onSubmit()">
-        <div *ngIf="pokemon.genders.genderless === false">
-            <label for="male">Male</label>
-            <input type="radio" value="male" id="male" name="gender" formControlName="gender">
-            <label for="female">Female</label>
-            <input type="radio" value="female" id="female" name="gender" formControlName="gender">
+        <div *ngIf="pokemon.genders.genderless === false" class="form-check-inline">
+            <label class="form-check-label" for="male">Male: </label>
+            <input type="radio" class="form-check-input" value="male" id="male" name="gender" formControlName="gender">
+            <label class="form-check-label" for="female">Female: </label>
+            <input type="radio" class="form-check-input" value="female" id="female" name="gender" formControlName="gender">
         </div>
-        <div *ngIf="pokemon.genders.genderless === true">
-            <label for="genderless">Genderless</label>
-            <input type="radio" value="genderless" id="genderless" name="gender" formControlName="gender" checked>
+        <div class="form-check-inline" *ngIf="pokemon.genders.genderless === true">
+            <label class="form-check-label" for="genderless">Genderless: </label>
+            <input type="radio" class="form-check-input" value="genderless" id="genderless" name="gender" formControlName="gender" checked>
         </div>
-        <div>
-            <h3>Shiny?</h3>
-            <label for="yes">Yes</label>
-            <input type="radio" [value]="true" id="yes" name="shiny" formControlName="shiny">
-            <label for="female">No</label>
-            <input type="radio" [value]="false" id="no" name="shiny" formControlName="shiny">
+        <h3>Shiny?</h3>
+        <div class="form-check-inline">
+            <label class="form-check-label" for="yes">Yes: </label>
+            <input type="radio" class="form-check-input" [value]="true" id="yes" name="shiny" formControlName="shiny">
+            <label class="form-check-label" for="female">No: </label>
+            <input type="radio" class="form-check-input" [value]="false" id="no" name="shiny" formControlName="shiny">
         </div>
-        <input type="number" name="latitude" formControlName="latitude">
-        <input type="number" name="longitude" formControlName="longitude">
-        <input type="submit" value="Submit me">
+        <app-map-box [imageUrl]="pokemon.sprite" (clickAttempt)="getLatLng($event)"></app-map-box>
+        <input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">
     </form>
 </div>
 
